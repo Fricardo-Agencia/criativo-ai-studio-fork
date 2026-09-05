@@ -1,0 +1,44 @@
+﻿{
+  "id": "STORY-001",
+  "slug": "como-estruturamos-equipe-de-agentes-autonomos",
+  "tipo": "story",
+  "formato": "story",
+  "dimensao": "1080x1920",
+  "pilar": "Bastidores de Implementação",
+  "criado_em": "2026-09-02T05:16:00-03:00",
+  "imagens": [
+    "saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/story-01.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/story-01.jpg"
+    }
+  ],
+  "legenda": "Como estruturamos uma equipe de agentes de I.A na prática.\\n\\nBastidores de engenharia com agentes autônomos integrados na operação.\\n\\nResponda ARQUITETURA no direct para ver o fluxo completo.",
+  "titulo": "Como estruturamos uma equipe de agentes autônomos",
+  "arquivos": {
+    "arte_final": "saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/story-01.jpg",
+    "briefing": "saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/briefing.json",
+    "copy": "saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/copy.md"
+  },
+  "headline": "COMO ESTRUTURAMOS UMA EQUIPE DE AGENTES DE I.A",
+  "cta": "Responda ARQUITETURA no direct",
+  "identidade_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  },
+  "status": "publicado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "publicado",
+  "publicado_em": "2026-09-02T05:32:45-03:00",
+  "mediaId": "18342379861280947",
+  "permalink": "https://www.instagram.com/stories/escoladeferramentas/3977189446752376679",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/stories/como-estruturamos-equipe-de-agentes-autonomos/story-01.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/como-estruturamos-equipe-de-agentes-autonomos.html"
+}

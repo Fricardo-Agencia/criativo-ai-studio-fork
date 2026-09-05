@@ -1,22 +1,27 @@
-/* Tokens visuais da marca — preenchidos durante o onboarding */
+/* Tokens visuais da marca — Ivan Nogueira | Especialista em I.A */
 
 :root {
-  /* Cores */
-  --cor-fundo: #F4F1EA;
-  --cor-texto: #142C2C;
-  --cor-destaque: #2A9D8F;
-  --cor-secundaria: #142C2C;
-  --cor-acento: #E9C46A;
+  /* Cores — extraídas da logo + direção dark premium */
+  --cor-fundo: #0D0D0D;
+  --cor-fundo-alt: #1A1A1A;
+  --cor-texto: #F5F5F5;
+  --cor-texto-secundario: #CCCCCC;
+  --cor-texto-terciario: #999999;
+  --cor-destaque: #FF6B00;
+  --cor-secundaria: #FFB800;
+  --cor-acento: #CC2200;
+  --cor-gradiente: linear-gradient(135deg, #FF6B00, #FFB800);
 
   /* Fontes */
-  --fonte-titulo: Arial, sans-serif;
-  --fonte-texto: Arial, sans-serif;
-  --fonte-apoio: Arial, sans-serif;
+  --fonte-titulo: 'Inter', sans-serif;
+  --fonte-texto: 'DM Sans', sans-serif;
+  --fonte-apoio: 'JetBrains Mono', monospace;
 
   /* Espaçamentos */
   --margem-segura: 80px;
   --espaco-entre-blocos: 24px;
-  --raio-borda: 12px;
+  --raio-borda: 4px;
+  --raio-borda-grande: 12px;
 
   /* Tamanhos de fonte */
   --titulo-grande: 72px;
@@ -24,4 +29,11 @@
   --titulo-pequeno: 28px;
   --corpo: 20px;
   --legenda: 14px;
+  --codigo: 16px;
+
+  /* Pesos */
+  --peso-black: 900;
+  --peso-bold: 700;
+  --peso-medium: 500;
+  --peso-regular: 400;
 }

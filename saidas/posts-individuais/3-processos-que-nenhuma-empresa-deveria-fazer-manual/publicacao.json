@@ -1,0 +1,41 @@
+{
+  "id": "POST-2026-09-03-17H",
+  "slug": "3-processos-que-nenhuma-empresa-deveria-fazer-manual",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "IA na Prática",
+  "criado_em": "2026-09-03T08:00:00-03:00",
+  "imagens": [
+    "saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/slide-01.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/slide-01.jpg"
+    }
+  ],
+  "legenda": "Se a sua equipe ainda gasta horas da semana com tarefas puramente repetitivas, você está pagando caro pelo custo invisível da ineficiência.\\n\\nEm 2026, estes 3 processos deveriam rodar 100% no piloto automático na sua empresa:\\n\\n1️⃣ Triagem e Qualificação de Leads:\\nChega de vendedor perdendo tempo com curioso. Um agente filtra dados de faturamento, urgência e perfil em segundos antes de passar o contato para o closer.\\n\\n2️⃣ Conciliação e Fechamento de Relatórios:\\nCruzar notas, extratos e planilhas manualmente é a maior fonte de erros operacionais. Agentes integrados via API consolidam os números da diretoria antes do expediente começar.\\n\\n3️⃣ Atendimento e Suporte N1:\\n80% das dúvidas de clientes são transacionais (status de pedido, 2ª via de boleto, regras de serviço). Agentes resolvem na hora, 24 horas por dia, sem fila de espera.\\n\\nA pergunta não é SE você vai automatizar esses fluxos, mas QUANDO. Quem automatiza primeiro reduz custo e ganha escala.\\n\\nQual desses três você precisa resolver primeiro na sua operação?\\n\\nComente abaixo ou me mande uma mensagem no direct para estruturarmos seu fluxo.\\n\\n#IAnaPrática #AutomaçãoDeProcessos #AgentesDeIA #EficiênciaOperacional #IvanNogueira #GestãoEmpresarial #InteligênciaArtificial #ProdutividadeB2B #NegóciosEscaláveis",
+  "titulo": "3 Processos que Nenhuma Empresa Deveria Fazer Manualmente",
+  "arquivos": {
+    "arte_final": "saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/slide-01.jpg",
+    "briefing": "saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/briefing.json",
+    "copy": "saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/copy.md"
+  },
+  "headline": "3 processos operacionais que nenhuma empresa deveria fazer manualmente hoje.",
+  "cta": "Qual desses três você precisa resolver primeiro? Me chama no direct.",
+  "identidade_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  },
+  "status": "aprovado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "aprovado",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/posts-individuais/3-processos-que-nenhuma-empresa-deveria-fazer-manual/slide-01.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/3-processos-que-nenhuma-empresa-deveria-fazer-manual.html"
+}

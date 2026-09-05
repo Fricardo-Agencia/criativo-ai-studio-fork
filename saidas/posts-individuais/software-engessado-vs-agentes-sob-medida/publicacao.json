@@ -1,0 +1,37 @@
+{
+  "id": "POST-2026-09-05-17H",
+  "slug": "software-engessado-vs-agentes-sob-medida",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "Comparações & Antes vs Depois (VS)",
+  "criado_em": "2026-09-05T08:00:00-03:00",
+  "data_agendada": "2026-09-05T17:00:00-03:00",
+  "imagens": [
+    "saidas/posts-individuais/software-engessado-vs-agentes-sob-medida/slide-01.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/posts-individuais/software-engessado-vs-agentes-sob-medida/slide-01.jpg"
+    }
+  ],
+  "legenda": "Toda empresa que cresce passa pelo mesmo trauma:\n\nContrata um software de prateleira caro prometendo resolver tudo. Três meses depois, descobre que:\n1. O sistema não conversa com o ERP legado;\n2. Para alterar um campo simples, o suporte cobra R$ 5.000 e pede 45 dias;\n3. O time cria planilhas paralelas no Google Sheets para contornar as travas da ferramenta.\n\nNo final, você não comprou uma solução. Você comprou um novo chefe para a sua equipe, que dita como o seu negócio deve funcionar.\n\nA era dos Agentes de IA sob medida inverte completamente essa dinâmica:\n\n❌ Software de Prateleira Tradicional:\n→ Você adapta o seu processo às limitações da plataforma.\n→ Paga mensalidades inflacionadas por dezenas de botões que ninguém usa.\n→ Depende de tickets lentos para qualquer ajuste fino.\n\n✔️ Agentes de IA Sob Medida:\n→ O agente é treinado nas regras exatas da sua empresa.\n→ Conecta diretamente no seu banco de dados, CRM e WhatsApp sem intermediários.\n→ Se a sua regra muda na sexta-feira, o agente se adapta em 5 minutos.\n\nEmpresas com margem alta não tentam enfiar um processo único dentro de uma caixa padrão. Elas constroem inteligência proprietária.\n\nQual é a maior gambiarra que a sua operação foi obrigada a criar por causa de um software que não atendia o que vocês precisavam?\n\nComente aqui embaixo ou salve este post para a próxima reunião de diretoria.\n\n#EscolaDeFerramentas #InteligenciaArtificial #AgentesSobMedida #EficienciaOperacional #GestaoEmpresarial #TecnologiaB2B #IvanNogueira #TransformacaoDigital #ProdutividadeCorporativa",
+  "titulo": "Software engessado vs. Agentes sob medida: onde você perde mais margem",
+  "headline": "SOFTWARE ENGESSADO OBRIGA SUA EMPRESA A MUDAR DE PROCESSO. AGENTES SOB MEDIDA APRENDEM A SUA REGRA DE NEGÓCIO.",
+  "cta": "Comente ou salve para consultar com a diretoria",
+  "identidade_visual": {
+    "tema": "editorial_bege_quente",
+    "cor_fundo": "#F4EFEA",
+    "cor_destaque": "#D34E23",
+    "cor_texto": "#111111",
+    "fonte_titulo": "Anton",
+    "fonte_texto": "Inter"
+  },
+  "status": "aprovado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "aprovado",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/posts-individuais/software-engessado-vs-agentes-sob-medida/slide-01.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/software-engessado-vs-agentes-sob-medida.html"
+}

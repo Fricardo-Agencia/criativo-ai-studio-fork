@@ -1,0 +1,21 @@
+{
+  "id": "POST-2026-09-03-17H-EXTRA",
+  "slug": "quem-nao-tem-agentes-paga-o-dobro",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "Visão e Tendências",
+  "data_agendada": "2026-09-03T17:00:00-03:00",
+  "objetivo": "Provocação executiva de alto impacto sobre margem de lucro e eficiência operacional proporcionada por agentes de IA na retaguarda.",
+  "publico": "Empresários, fundadores, diretores de operação e líderes que tomam decisões estratégicas.",
+  "headline": "QUEM NÃO TEM AGENTES DE IA NA RETAGUARDA ESTÁ PAGANDO O DOBRO PELA MESMA ENTREGA.",
+  "cta": "Compartilhe este post com seu sócio ou diretor de operações.",
+  "direcao_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  }
+}

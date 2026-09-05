@@ -1,0 +1,21 @@
+{
+  "id": "POST-2026-09-03-09H",
+  "slug": "anatomia-de-um-sistema-multiagente",
+  "tipo": "carrossel",
+  "formato": "carrossel",
+  "dimensao": "1080x1350",
+  "pilar": "Bastidores de Implementação",
+  "data_agendada": "2026-09-03T09:00:00-03:00",
+  "objetivo": "Demonstrar a arquitetura real de colaboração entre agentes autônomos na operação de marketing e vendas.",
+  "publico": "Empresários, diretores de tecnologia, gestores comerciais e de operações.",
+  "headline": "Anatomia de um Sistema Multiagente: Como 3 agentes operam o marketing e vendas de uma empresa.",
+  "cta": "Mande DIRECT com a palavra AGENTS",
+  "direcao_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  }
+}

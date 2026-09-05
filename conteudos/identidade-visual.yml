@@ -1,17 +1,37 @@
-tema: claro
+﻿tema: editorial_bege_quente
+estilo: viral_3d_editorial
 cores:
-  cor_fundo: '#F4F1EA'
-  cor_texto: '#142C2C'
-  cor_destaque: '#2A9D8F'
-  cor_secundaria: '#142C2C'
-  cor_acento: '#E9C46A'
+  cor_fundo: '#F4EFEA'
+  cor_fundo_alt: '#EAE3DA'
+  cor_borda_moldura: '#D6E2D5'
+  cor_texto: '#111111'
+  cor_texto_secundario: '#555555'
+  cor_destaque_terracota: '#D34E23'
+  cor_destaque_verde: '#25D366'
+  cor_balao_verde: '#4CD98B'
+  cor_balao_escuro: '#2A2E33'
+  cor_tag_borda: '#C46D5E'
 fontes:
-  fonte_titulo: 'A definir'
-  fonte_texto: 'A definir'
-  fonte_apoio: 'A definir'
-usuario: 'Sua marca'
+  fonte_titulo: 'Anton, Bebas Neue, Inter Tight, sans-serif'
+  fonte_texto: 'Inter, DM Sans, sans-serif'
+  fonte_apoio: 'JetBrains Mono'
+usuario: 'escoladeferramentas'
 recursos:
-  logo: 'A definir'
-  fotos: []
-  referencias: []
-  direitos_de_uso: 'A definir'
+  referencia_ouro: 'recursos/referencias/referencia-ouro-flow-estetica-3d.png'
+  logo: 'recursos/logos/logo-ivan-nogueira-V2.png'
+  logo_fundo_claro: 'recursos/logos/logo-ivan-nogueira.png'
+  favicon: 'recursos/logos/ivannogueira-favicon.png'
+  fotos:
+    - 'recursos/fotos/ivannogueira.jpeg'
+    - 'recursos/fotos/a-cinematic-portrait-photograph-of-a-man_56WWHBYASOej5fy3IeyGcg_VK2Z7LCUQFuiAc7a1cy_UQ.jpeg'
+    - 'recursos/fotos/a-dramatic-studio-portrait-photograph-of_sRF29YnkTpq2YYHTJq7zcw__mq9hLO2RJ2KJsNpLj4TQA.jpeg'
+    - 'recursos/fotos/a-professional-studio-portrait-of-a-man-_6shM1kYpSQaPW3h_eG2h_w_X5WfJ_lDRMu-E-dwB80Bkw.jpeg'
+    - 'recursos/fotos/a-striking-editorial-style-portrait-of-a_-BFWWp3eTcSEp3LxF2gXwg_s5nYerd7RQiDXFW2Yep1sA.jpeg'
+  referencias:
+    - 'recursos/referencias/referencia-ouro-flow-estetica-3d.png'
+    - 'recursos/referencias/Captura de tela 2026-09-01 135206.png'
+    - 'recursos/referencias/09cf83424c3ca09e1f0d5426355a5c03.jpg'
+    - 'recursos/referencias/6ba3b5be6bb059d5d42fb49070259360.jpg'
+    - 'recursos/referencias/15a991e49a81941641e79a0c107933c1.jpg'
+    - 'recursos/referencias/920523fdd10d4cb3c76206acb64d558c.jpg'
+  direitos_de_uso: 'Confirmados — ativos próprios do usuário'

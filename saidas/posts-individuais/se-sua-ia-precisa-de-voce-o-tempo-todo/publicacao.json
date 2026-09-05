@@ -1,0 +1,44 @@
+{
+  "id": "POST-2026-09-02-17H",
+  "slug": "se-sua-ia-precisa-de-voce-o-tempo-todo",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "Estratégia com IA",
+  "criado_em": "2026-09-02T06:20:00-03:00",
+  "imagens": [
+    "saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/slide-01.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/slide-01.jpg"
+    }
+  ],
+  "legenda": "Muitos empresários acham que têm inteligência artificial na operação porque assinaram o ChatGPT Plus.\\n\\nMas a realidade do dia a dia é esta:\\nVocê precisa lembrar de abrir a ferramenta, pensar no prompt certo, esperar o texto ser gerado, revisar, copiar e colar no seu CRM ou planilha.\\n\\nSe o processo depende de você para cada clique, isso não é automação. É apenas uma ferramenta de apoio que virou mais um item na sua lista de afazeres.\\n\\nA automação com IA de verdade acontece nos bastidores:\\n→ O lead entra e é qualificado instantaneamente.\\n→ O relatório é consolidado e enviado sem ninguém pedir.\\n→ Os sistemas conversam via API e tomam decisões autorizadas com agentes autônomos.\\n\\nVocê deixa de ser o 'operador da IA' e passa a ser o gestor da inteligência da sua empresa.\\n\\nQual processo repetitivo consome mais horas da sua equipe hoje? Comente abaixo ou me mande no direct para desenharmos uma solução.\\n\\n#IAparaNegócios #AgentesAutônomos #AutomaçãoInteligente #InteligênciaArtificial #IvanNogueira #EficiênciaOperacional #TransformaçãoDigital #GestãoEmpresarial #Produtividade",
+  "titulo": "Se a sua IA precisa de você o tempo todo, ela não é automação",
+  "arquivos": {
+    "arte_final": "saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/slide-01.jpg",
+    "briefing": "saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/briefing.json",
+    "copy": "saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/copy.md"
+  },
+  "headline": "Se a sua IA precisa de você o tempo todo, ela não é automação.",
+  "cta": "Qual é a tarefa que mais consome seu tempo hoje? Comente abaixo.",
+  "identidade_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  },
+  "status": "publicado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "publicado",
+  "publicado_em": "2026-09-02T17:00:40-03:00",
+  "mediaId": "18112509364955105",
+  "permalink": "https://www.instagram.com/p/DczC64kGlXJ/",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/posts-individuais/se-sua-ia-precisa-de-voce-o-tempo-todo/slide-01.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/se-sua-ia-precisa-de-voce-o-tempo-todo.html"
+}

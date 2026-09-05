@@ -1,0 +1,26 @@
+{
+  "slug": "como-estruturamos-equipe-de-agentes-autonomos",
+  "tipo": "story",
+  "formato": "story-vertical",
+  "dimensao": "1080x1920",
+  "aspect_ratio": "9:16",
+  "pilar": "Bastidores de Implementação",
+  "objetivo": "Autoridade técnica e geração de leads via direct mostrando execução real de engenharia de agentes",
+  "publico": "Empresários e gestores de operações que buscam automação inteligente e agentes de IA",
+  "headline": "COMO ESTRUTURAMOS UMA EQUIPE DE AGENTES DE I.A",
+  "subtexto": "3 agentes autônomos integrados na operação",
+  "badge": "BASTIDORES DE ENGENHARIA",
+  "cta": "Responda ARQUITETURA no direct",
+  "zonas_seguras": {
+    "topo_livre_px": 250,
+    "rodape_livre_px": 350,
+    "area_central_pct": 65
+  },
+  "direcao_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "foto_referencia": "recursos/fotos/ivannogueira.jpeg"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "POST-2026-09-03-17H-EXTRA",
+  "slug": "quem-nao-tem-agentes-paga-o-dobro",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "Visão e Tendências",
+  "criado_em": "2026-09-03T15:00:00-03:00",
+  "data_agendada": "2026-09-03T17:00:00-03:00",
+  "imagens": [
+    "saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/slide-01.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/slide-01.jpg"
+    }
+  ],
+  "legenda": "Enquanto uma empresa tradicional precisa de horas de trabalho humano para qualificar um lead, cruzar dados fiscais, montar relatórios de vendas e responder o básico...\\n\\nUma operação que implementou arquitetura de agentes autônomos faz isso em 4 segundos, 24 horas por dia, com custo marginal próximo de zero.\\n\\nNão se trata de trocar pessoas por robôs. Trata-se de parar de pagar caro para profissionais qualificados gastarem 60% do dia copiando e colando informações entre telas.\\n\\nEm 2026, a sua margem de lucro não é definida apenas pelo quanto você vende. Ela é definida pela velocidade e pelo custo com que sua retaguarda opera.\\n\\nQuem tem agentes rodando na infraestrutura escala sem inflar a folha de pagamento na mesma proporção. Quem não tem, paga o dobro para entregar o mesmo resultado.\\n\\nSua empresa ainda está operando no modelo antigo?\\n\\nCompartilhe este post com seu sócio ou diretor de operações para abrir essa discussão hoje.\\n\\n#IAparaNegócios #AgentesAutônomos #EficiênciaOperacional #IvanNogueira #EstratégiaDeNegócios #TransformaçãoDigital #AutomaçãoInteligente #LiderançaExecutiva",
+  "titulo": "Quem Não Tem Agentes de IA na Retaguarda Está Pagando o Dobro",
+  "arquivos": {
+    "arte_final": "saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/arte-final.jpg",
+    "briefing": "saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/briefing.json",
+    "copy": "saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/copy.md"
+  },
+  "headline": "QUEM NÃO TEM AGENTES DE IA NA RETAGUARDA ESTÁ PAGANDO O DOBRO PELA MESMA ENTREGA.",
+  "cta": "Compartilhe este post com seu sócio ou diretor de operações.",
+  "identidade_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  },
+  "status": "aprovado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "aprovado",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/posts-individuais/quem-nao-tem-agentes-paga-o-dobro/slide-01.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/quem-nao-tem-agentes-paga-o-dobro.html"
+}

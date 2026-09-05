@@ -1,0 +1,21 @@
+{
+  "id": "POST-2026-09-02-17H",
+  "slug": "se-sua-ia-precisa-de-voce-o-tempo-todo",
+  "tipo": "post-individual",
+  "formato": "post-individual",
+  "dimensao": "1080x1350",
+  "pilar": "Estratégia com IA",
+  "data_agendada": "2026-09-02T17:00:00-03:00",
+  "objetivo": "Provocar empresários e gestores sobre a ilusão de automação quando dependem de trabalho manual para acionar ferramentas de IA.",
+  "publico": "Empresários, gestores e diretores de operação buscando produtividade e sistemas autônomos com IA.",
+  "headline": "Se a sua IA precisa de você o tempo todo, ela não é automação. É só mais uma tarefa na sua agenda.",
+  "cta": "Qual é a tarefa que mais consome seu tempo hoje? Comente abaixo.",
+  "direcao_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  }
+}

@@ -165,15 +165,24 @@ async function requisitar(fetchFn, url, token, opcoes = {}, aceitar404 = false) 
 async function enviarArquivo({ fetchFn, owner, repo, branch, token, caminhoRemoto, conteudo, mensagem, repositorioVazio = false }) {
   const endpoint = `${api}/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${caminhoUrl(caminhoRemoto)}`;
   const consulta = repositorioVazio ? endpoint : `${endpoint}?ref=${encodeURIComponent(branch)}`;
-  const existente = await requisitar(fetchFn, consulta, token, {}, true);
-  const corpo = { message: mensagem, content: Buffer.from(conteudo).toString('base64') };
-  if (!repositorioVazio) corpo.branch = branch;
-  if (existente?.sha) corpo.sha = existente.sha;
-  await requisitar(fetchFn, endpoint, token, {
-    method: 'PUT',
-    body: JSON.stringify(corpo),
-    headers: { 'content-type': 'application/json' }
-  });
+  
+  for (let tentativa = 1; tentativa <= 4; tentativa++) {
+    try {
+      const existente = await requisitar(fetchFn, consulta, token, {}, true);
+      const corpo = { message: mensagem, content: Buffer.from(conteudo).toString('base64') };
+      if (!repositorioVazio) corpo.branch = branch;
+      if (existente?.sha) corpo.sha = existente.sha;
+      await requisitar(fetchFn, endpoint, token, {
+        method: 'PUT',
+        body: JSON.stringify(corpo),
+        headers: { 'content-type': 'application/json' }
+      });
+      return;
+    } catch (erro) {
+      if (tentativa === 4) throw erro;
+      await new Promise((r) => setTimeout(r, 2000 * tentativa));
+    }
+  }
 }
 
 export async function publicarNoGitHubPages({ caminhoManifesto, diretorioRaiz = raizPadrao, fetchFn = fetch } = {}) {

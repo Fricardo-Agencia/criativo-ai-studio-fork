@@ -1,0 +1,64 @@
+{
+  "id": "POST-2026-09-02-06H",
+  "slug": "de-chatbot-a-agente-autonomo",
+  "tipo": "carrossel",
+  "formato": "carrossel",
+  "dimensao": "1080x1350",
+  "pilar": "Estratégia com IA",
+  "criado_em": "2026-09-02T05:50:00-03:00",
+  "imagens": [
+    "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-01.jpg",
+    "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-02.jpg",
+    "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-03.jpg",
+    "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-04.jpg",
+    "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-05.jpg"
+  ],
+  "slides": [
+    {
+      "src": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-01.jpg"
+    },
+    {
+      "src": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-02.jpg"
+    },
+    {
+      "src": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-03.jpg"
+    },
+    {
+      "src": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-04.jpg"
+    },
+    {
+      "src": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-05.jpg"
+    }
+  ],
+  "legenda": "Em 2026, quem ainda usa IA apenas como chatbot de perguntas e respostas está ficando para trás na eficiência operacional.\\n\\nA grande virada não é o modelo de IA que você usa — é como ele se integra à sua operação.\\n\\n→ O modelo antigo: você abre uma aba, escreve um prompt, espera o texto, copia e cola no seu sistema. Isso não é automação, é só um assistente manual.\\n\\n→ O modelo novo (Agentes Autônomos): o sistema detecta um novo lead, um agente qualifica os dados, consulta o histórico no banco, aciona o CRM e prepara a proposta sem ninguém precisar digitar um único comando.\\n\\nA IA deixa de ser uma ferramenta isolada e passa a ser a infraestrutura ativa do seu negócio.\\n\\nQuer descobrir onde a IA e os agentes autônomos podem ser implementados na sua operação?\\n\\nMande um direct com a palavra DIAGNÓSTICO que vamos mapear suas maiores oportunidades.\\n\\n#IAparaNegócios #AgentesAutônomos #InteligênciaArtificial #AutomaçãoEmpresarial #IvanNogueira #OperaçõesInteligentes #TransformaçãoDigital #EngenhariaDeIA #GestãoComIA",
+  "titulo": "De Chatbot a Agente Autônomo: A virada de chave em 2026",
+  "arquivos": {
+    "arte_final": "saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-01.jpg",
+    "briefing": "saidas/carrosseis/de-chatbot-a-agente-autonomo/briefing.json",
+    "copy": "saidas/carrosseis/de-chatbot-a-agente-autonomo/copy.md"
+  },
+  "headline": "DE CHATBOT A AGENTE AUTÔNOMO",
+  "cta": "Mande um direct com a palavra DIAGNÓSTICO",
+  "identidade_visual": {
+    "tema": "escuro",
+    "cor_fundo": "#0D0D0D",
+    "cor_destaque": "#FF6B00",
+    "cor_texto": "#F5F5F5",
+    "fonte_titulo": "Inter",
+    "fonte_texto": "DM Sans"
+  },
+  "status": "publicado",
+  "aprovacao_visual": "aprovado",
+  "aprovacao_publicacao": "publicado",
+  "publicado_em": "2026-09-02T05:59:36-03:00",
+  "mediaId": "18107148662274011",
+  "permalink": "https://www.instagram.com/p/Dcx3QQzmyco/",
+  "urlsPublicas": [
+    "https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-01.jpg",
+    "https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-02.jpg",
+    "https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-03.jpg",
+    "https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-04.jpg",
+    "https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/de-chatbot-a-agente-autonomo/slide-05.jpg"
+  ],
+  "previewPublico": "https://navibotlab.github.io/meu-social-midia/previas/de-chatbot-a-agente-autonomo.html"
+}

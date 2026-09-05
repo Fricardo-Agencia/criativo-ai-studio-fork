@@ -1,4 +1,4 @@
-# Entregável Prometido: Gabarito de Safe Zone & Checklist do Carrossel Viral
+﻿# Entregável Prometido: Gabarito de Safe Zone & Checklist do Carrossel Viral
 
 Este material foi desenvolvido para cumprir a promessa feita na legenda do carrossel **A Arte do Carrossel Viral** (`POST-2026-09-05-07H`), disparado via automação de direct (ManyChat) para quem comentar a palavra-chave **CARROSSEL**.
 
@@ -20,7 +20,7 @@ Este material foi desenvolvido para cumprir a promessa feita na legenda do carro
 ## 📑 Conteúdo e Estrutura do Documento (5 Páginas A4)
 
 1. **Página 1 — Capa Cinematográfica Editorial:**
-   - Estética Dark Studio (`#07090e`), badges técnicos em verde esmeralda (`#10b981`), tipografia de alto impacto (Syne + Inter) e identificação de autoria `@ivannogueira.marketing`.
+   - Estética Dark Studio (`#07090e`), badges técnicos em verde esmeralda (`#10b981`), tipografia de alto impacto (Syne + Inter) e identificação de autoria `@escoladeferramentas`.
 
 2. **Página 2 — Gabarito Dimensional (4:5 vs 1:1 Feed Grid):**
    - Comparativo visual da proporção nativa do feed (1080x1350) contra a área do grid do perfil (1080x1080).
