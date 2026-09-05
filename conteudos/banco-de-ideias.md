@@ -12,9 +12,7 @@ Ideias e pautas de conteúdo mapeadas e datadas para o Criativo AI Studio.
 | `POST-2026-09-04-09H` | 04/09/2026 09:00 | Se a sua empresa ainda perde 4h/dia em planilhas, instala esse agente | Comparações (VS) | carrossel | Alta | publicado |
 | `POST-2026-09-04-13H30` | 04/09/2026 13:30 | O único fluxo de IA que qualifica leads no WhatsApp em 15 segundos | Setups & Ferramentas | carrossel | Alta | publicado (https://www.instagram.com/p/Dc3zORcD6Gm/) |
 | `POST-2026-09-05-07H` | 05/09/2026 07:00 | A Arte do Carrossel Viral: Formato, Safe Zone e Retenção | IA na Prática | carrossel | Alta | publicado (https://www.instagram.com/p/Dc5tPm5oGO2/) [Gatilho: CARROSSEL] |
-| `POST-2026-09-05-09H` | 05/09/2026 09:00 | 7 Ferramentas de IA que nenhuma empresa deveria operar sem em 2026 | Setups & Ferramentas | carrossel | Alta | planejado [Gatilho: TOP7] |
-| `POST-2026-09-05-13H30` | 05/09/2026 13:30 | Você poderia estar cobrando R$ 2.500/mês para implementar esse suporte N1 com IA | Monetização & Mercado | carrossel | Alta | planejado [Gatilho: SUPORTE] |
-| `POST-2026-09-05-17H` | 05/09/2026 17:00 | Software engessado vs. Agentes sob medida: onde você perde mais margem | Comparações (VS) | post-individual | Alta | planejado [Ponto focal: diagrama_infografico] |
+| `POST-2026-09-05-17H` | 05/09/2026 17:00 | Software engessado vs. Agentes sob medida: onde você perde mais margem | Comparações (VS) | post-individual | Alta | agendado (17:00) [Ponto focal: diagrama_infografico] |
 | `POST-2026-09-06-09H` | 06/09/2026 09:00 | O único setup de IA que faz sua empresa responder e qualificar leads em 30 segundos | Setups & Ferramentas | carrossel | Alta | planejado [Gatilho: SETUP] |
 | `POST-2026-09-06-13H30` | 06/09/2026 13:30 | 5 automações com IA que cortam 15 horas semanais do seu financeiro | Playbooks | carrossel | Alta | planejado [Gatilho: FINANCEIRO] |
 | `POST-2026-09-06-17H` | 06/09/2026 17:00 | Segunda-feira seu time vai gastar 2h gerando relatórios manuais. Por quê? | Comparações (VS) | post-individual | Alta | planejado [Ponto focal: tipografico_puro] |
@@ -27,5 +25,6 @@ Ideias e pautas de conteúdo mapeadas e datadas para o Criativo AI Studio.
 | `POST-2026-09-09-09H` | 09/09/2026 09:00 | Os 3 ralos invisíveis de lucro entre o seu Marketing e o seu Comercial | Comparações (VS) | carrossel | Alta | planejado [Gatilho: RALOS] |
 | `POST-2026-09-09-13H30` | 09/09/2026 13:30 | Checklist de 10 passos: como auditar se sua empresa está pronta para IA | Playbooks | carrossel | Alta | planejado [Gatilho: CHECKLIST] |
 | `POST-2026-09-09-17H` | 09/09/2026 17:00 | Automatizar processo ruim não resolve nada: só gera prejuízo mais rápido | Playbooks | post-individual | Alta | planejado [Ponto focal: tipografico_puro] |
-
+| `POST-2026-09-10-09H` | 10/09/2026 09:00 | 7 Ferramentas de IA que nenhuma empresa deveria operar sem em 2026 | Setups & Ferramentas | carrossel | Alta | planejado [Gatilho: TOP7] |
+| `POST-2026-09-10-13H30` | 10/09/2026 13:30 | Você poderia estar cobrando R$ 2.500/mês para implementar esse suporte N1 com IA | Monetização & Mercado | carrossel | Alta | planejado [Gatilho: SUPORTE] |
 

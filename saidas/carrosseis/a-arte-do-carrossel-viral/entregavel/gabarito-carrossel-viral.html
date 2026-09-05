@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Arte do Carrossel Viral — Gabarito Técnico & Checklist</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    :root {
+      --bg: #07090e;
+      --card-bg: #0e121d;
+      --card-border: rgba(255, 255, 255, 0.1);
+      --orange: #ff6b00;
+      --orange-glow: rgba(255, 107, 0, 0.25);
+      --amber: #f59e0b;
+      --green: #10b981;
+      --red: #ef4444;
+      --blue: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    body {
+      background-color: #020305;
+      font-family: var(--font-main);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      background: radial-gradient(circle at 80% 15%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 10% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+                  #07090e;
+      padding: 16mm 18mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Borda técnica sutil em volta da página */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 8mm;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+      border-radius: 6px;
+    }
+
+    /* Marcadores nos 4 cantos */
+    .corner-mark {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: rgba(255, 107, 0, 0.4);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .cm-tl { top: 8mm; left: 8mm; border-width: 2px 0 0 2px; }
+    .cm-tr { top: 8mm; right: 8mm; border-width: 2px 2px 0 0; }
+    .cm-bl { bottom: 8mm; left: 8mm; border-width: 0 0 2px 2px; }
+    .cm-br { bottom: 8mm; right: 8mm; border-width: 0 2px 2px 0; }
+
+    /* Cabeçalho de página */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 8.5pt;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .doc-ref {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+      letter-spacing: 0.04em;
+    }
+
+    /* Rodapé de página */
+    .page-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+    }
+
+    .page-footer .author-badge {
+      color: var(--text-muted);
+    }
+
+    .page-footer .page-number {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       PÁGINA 1: CAPA CINEMATOGRÁFICA
+       ========================================================================== */
+    .cover-page {
+      padding: 20mm 20mm;
+      justify-content: space-between;
+      background: radial-gradient(circle at 50% 25%, rgba(255, 107, 0, 0.22) 0%, transparent 60%),
+                  radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+                  #06080e;
+    }
+
+    .cover-top {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.35);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 8.5pt;
+      color: #ff9d42;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    .badge-pill .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--orange);
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    .cover-title-group {
+      margin-top: 24px;
+    }
+
+    .cover-pre-title {
+      font-family: var(--font-mono);
+      font-size: 11pt;
+      letter-spacing: 0.25em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .cover-main-title {
+      font-size: 38pt;
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .cover-main-title .gradient-word {
+      background: linear-gradient(135deg, #ffffff 20%, #ff8833 65%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-subtitle {
+      font-size: 13pt;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 140mm;
+      border-left: 3px solid var(--orange);
+      padding-left: 14px;
+      margin-top: 14px;
+    }
+
+    .cover-hero-card {
+      background: rgba(14, 18, 29, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 18px 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      margin: 20px 0;
+    }
+
+    .cover-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .cover-spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cover-spec-label {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cover-spec-val {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .cover-spec-val.highlight {
+      color: var(--orange);
+    }
+
+    .cover-bottom-meta {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 14px;
+    }
+
+    .cover-author-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cover-author-title {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-subtle);
+      font-family: var(--font-mono);
+    }
+
+    .cover-author-name {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .cover-author-handle {
+      font-family: var(--font-mono);
+      font-size: 9pt;
+      color: var(--orange);
+    }
+
+    .cover-seal {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      color: var(--text-muted);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* ==========================================================================
+       PÁGINA 2: O GABARITO TÉCNICO DE PROPORÇÃO (4:5 VS 1:1)
+       ========================================================================== */
+    .content-title {
+      font-size: 20pt;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+
+    .content-subtitle {
+      font-size: 9.5pt;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .comparison-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .comparison-box {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .comparison-box.winner {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(14, 18, 29, 0.9) 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.08);
+    }
+
+    .comparison-box.loser {
+      border-color: rgba(239, 68, 68, 0.25);
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(14, 18, 29, 0.9) 100%);
+    }
+
+    .box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .box-tag {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .box-tag.tag-win {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .box-tag.tag-lose {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .ratio-diagram {
+      width: 100%;
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 8.5pt;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
+    }
+
+    .feature-list li strong {
+      color: #ffffff;
+    }
+
+    .stat-banner {
+      background: linear-gradient(90deg, rgba(255, 107, 0, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 10px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .stat-banner .stat-num {
+      font-size: 26pt;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      font-family: var(--font-mono);
+    }
+
+    .stat-banner .stat-desc {
+      font-size: 9pt;
+      color: var(--text);
+      max-width: 110mm;
+      line-height: 1.35;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+    }
+
+    .specs-table th {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .specs-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .specs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       PÁGINA 3: O MAPA MILIMÉTRICO DA SAFE ZONE
+       ========================================================================== */
+    .safezone-layout {
+      display: grid;
+      grid-template-columns: 85mm 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .safezone-phone-frame {
+      background: #000000;
+      border: 2px solid rgba(255, 107, 0, 0.4);
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 107, 0, 0.15);
+      position: relative;
+    }
+
+    .safezone-screen {
+      background: #111420;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 135mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sz-zone-top {
+      height: 18mm;
+      background: rgba(239, 68, 68, 0.22);
+      border-bottom: 1.5px dashed #ef4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      color: #fca5a5;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sz-zone-bottom {
+      height: 18mm;
+      background: rgba(239, 68, 68, 0.22);
+      border-top: 1.5px dashed #ef4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      color: #fca5a5;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sz-middle-row {
+      flex: 1;
+      display: flex;
+      position: relative;
+    }
+
+    .sz-zone-left {
+      width: 5mm;
+      background: rgba(245, 158, 11, 0.2);
+      border-right: 1.5px dashed #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      color: #fcd34d;
+    }
+
+    .sz-zone-right {
+      width: 12mm;
+      background: rgba(239, 68, 68, 0.22);
+      border-left: 1.5px dashed #ef4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      color: #fca5a5;
+      font-weight: 700;
+    }
+
+    .sz-active-canvas {
+      flex: 1;
+      background: rgba(16, 185, 129, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 4px;
+      margin: 4px;
+    }
+
+    .sz-active-title {
+      font-size: 9pt;
+      font-weight: 800;
+      color: #34d399;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .sz-active-desc {
+      font-size: 7pt;
+      color: #cbd5e1;
+      line-height: 1.3;
+    }
+
+    .safezone-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .sz-card h4 {
+      font-size: 9.5pt;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sz-card p {
+      font-size: 8pt;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .sz-pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      font-weight: 700;
+    }
+
+    .pill-red { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .pill-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .pill-green { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 8pt;
+      color: #fecaca;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       PÁGINA 4: ENGENHARIA DE RETENÇÃO SLIDE A SLIDE
+       ========================================================================== */
+    .timeline-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 28mm 1fr 40mm;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      align-items: center;
+    }
+
+    .timeline-row.hero-step {
+      border-color: rgba(255, 107, 0, 0.35);
+      background: linear-gradient(90deg, rgba(255, 107, 0, 0.08) 0%, rgba(14, 18, 29, 0.95) 100%);
+    }
+
+    .tl-slide-badge {
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      font-weight: 800;
+      color: var(--orange);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tl-slide-badge .phase-name {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .tl-content-main h4 {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .tl-content-main p {
+      font-size: 7.8pt;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .tl-target-metric {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      color: var(--text-subtle);
+    }
+
+    .tl-target-metric .metric-tag {
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 7pt;
+    }
+
+    .metric-stop { background: rgba(255, 107, 0, 0.2); color: #ff9d42; }
+    .metric-commit { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
+    .metric-tension { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+    .metric-climax { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+    .metric-convert { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+
+    /* ==========================================================================
+       PÁGINA 5: CHECKLIST EXECUTIVO (GABARITO DE APROVAÇÃO 15/15)
+       ========================================================================== */
+    .checklist-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .chk-category {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .chk-category h4 {
+      font-size: 9pt;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+
+    .chk-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 7.8pt;
+      line-height: 1.35;
+      color: #cbd5e1;
+    }
+
+    .chk-box {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid rgba(255, 107, 0, 0.6);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .seal-closing-box {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.12) 0%, rgba(14, 18, 29, 0.8) 100%);
+      border: 1px solid rgba(255, 107, 0, 0.35);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .seal-closing-text h4 {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .seal-closing-text p {
+      font-size: 8pt;
+      color: var(--text-muted);
+      max-width: 120mm;
+      line-height: 1.4;
+    }
+
+    .signature-badge {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+    }
+
+    .sig-name {
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--orange);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PÁGINA 1: CAPA
+       ========================================================================== -->
+  <div class="page cover-page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="cover-top">
+      <div class="badge-pill">
+        <span class="pulse-dot"></span>
+        Gabarito Oficial • Manual Técnico de Produção
+      </div>
+
+      <div class="cover-title-group">
+        <div class="cover-pre-title">Escola de Ferramentas // Blueprint #04</div>
+        <h1 class="cover-main-title">
+          A Arte do<br>
+          <span class="gradient-word">Carrossel Viral</span>
+        </h1>
+        <p class="cover-subtitle">
+          Gabarito dimensional milimétrico, mapa de safe zone inviolável e o checklist executivo dos 10 slides de alta retenção no Instagram.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card de Especificações Rápidas -->
+    <div class="cover-hero-card">
+      <div class="cover-specs-grid">
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Proporção Oficial</span>
+          <span class="cover-spec-val highlight">4:5 Vertical</span>
+        </div>
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Resolução Nativa</span>
+          <span class="cover-spec-val">1080 × 1350 px</span>
+        </div>
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Margem Safe Zone</span>
+          <span class="cover-spec-val highlight">180px Topo/Base</span>
+        </div>
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Tipografia Título</span>
+          <span class="cover-spec-val">≥ 50pt Ultra-Bold</span>
+        </div>
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Regra dos Slides</span>
+          <span class="cover-spec-val">10 Lâminas Sequenciais</span>
+        </div>
+        <div class="cover-spec-item">
+          <span class="cover-spec-label">Gatilho de Conversão</span>
+          <span class="cover-spec-val highlight">ManyChat Direto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metadados do Autor -->
+    <div class="cover-bottom-meta">
+      <div class="cover-author-block">
+        <span class="cover-author-title">Direção Técnica & Pesquisa</span>
+        <span class="cover-author-name">Ivan Nogueira</span>
+        <span class="cover-author-handle">@escoladeferramentas • IA Aplicada nos Negócios</span>
+      </div>
+
+      <div class="cover-seal">
+        <span>GABARITO HOMOLOGADO PARA O ALGORITMO 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PÁGINA 2: O GABARITO DE PROPORÇÃO
+       ========================================================================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">01. Gabarito Dimensional</div>
+      <div class="doc-ref">DOC: GAB-45-DIM // ESCOLA DE FERRAMENTAS</div>
+    </div>
+
+    <div class="page-body">
+      <h2 class="content-title">O Tamanho do Carrossel Importa</h2>
+      <p class="content-subtitle">Por que o formato 1:1 quadrado desperdiça 25% da tela do seguidor e como o 4:5 vertical vence no algoritmo.</p>
+
+      <div class="stat-banner">
+        <div class="stat-num">+25%</div>
+        <div class="stat-desc">
+          <strong>Mais Área Útil de Tela:</strong> O formato 4:5 ocupa 82% da altura útil em smartphones topo de linha contra apenas 62% do 1:1, forçando a parada de scroll imediata e aumentando o tempo de retenção (dwell time).
+        </div>
+      </div>
+
+      <div class="comparison-wrapper">
+        <!-- Box 1: 4:5 Vencedor -->
+        <div class="comparison-box winner">
+          <div class="box-header">
+            <span class="box-tag tag-win">✔ Padrão Recomendado</span>
+            <span style="font-family: var(--font-mono); font-size: 8pt; color: #34d399; font-weight: 700;">4:5 VERTICAL</span>
+          </div>
+
+          <div class="ratio-diagram">
+            <svg width="100" height="110" viewBox="0 0 80 100">
+              <rect x="10" y="5" width="60" height="75" rx="4" fill="rgba(16, 185, 129, 0.25)" stroke="#10b981" stroke-width="2"/>
+              <text x="40" y="47" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">1080×1350</text>
+            </svg>
+          </div>
+
+          <ul class="feature-list">
+            <li><span>✔</span> <strong>Presença Imponente:</strong> Bloqueia quase todo o feed, reduzindo distrações de posts vizinhos.</li>
+            <li><span>✔</span> <strong>Mais Espaço para Texto:</strong> Permite títulos de 50pt+ sem empilhar palavras ou poluir a arte.</li>
+            <li><span>✔</span> <strong>Leitura Natural:</strong> Movimento ocular vertical alinhado à postura de segurar o smartphone.</li>
+          </ul>
+        </div>
+
+        <!-- Box 2: 1:1 Obsoleto -->
+        <div class="comparison-box loser">
+          <div class="box-header">
+            <span class="box-tag tag-lose">✖ Desaconselhado</span>
+            <span style="font-family: var(--font-mono); font-size: 8pt; color: #f87171; font-weight: 700;">1:1 QUADRADO</span>
+          </div>
+
+          <div class="ratio-diagram">
+            <svg width="100" height="110" viewBox="0 0 80 100">
+              <rect x="15" y="18" width="50" height="50" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="2"/>
+              <text x="40" y="48" fill="#fca5a5" font-size="9" text-anchor="middle" font-family="sans-serif">1080×1080</text>
+            </svg>
+          </div>
+
+          <ul class="feature-list">
+            <li><span>✖</span> <strong>Efeito Encolhimento:</strong> Deixa faixas vazias em cima e embaixo, facilitando passar direto.</li>
+            <li><span>✖</span> <strong>Texto Espremido:</strong> Obriga a reduzir o corpo de texto para menos de 14pt, cansando a vista.</li>
+            <li><span>✖</span> <strong>Menor Entrega Orgânica:</strong> Posts menores geram 18% a 24% menos tempo de visualização.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tabela Técnica -->
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Medida Oficial</th>
+            <th>Impacto na Operação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dimensão Pixel</strong></td>
+            <td>1080 px de largura × 1350 px de altura</td>
+            <td>Garante renderização nítida em telas Retina/OLED sem interpolação.</td>
+          </tr>
+          <tr>
+            <td><strong>Proporção Aspect Ratio</strong></td>
+            <td>4:5 (ou 0.8 exato)</td>
+            <td>Proporção máxima aceita pelo Instagram sem sofrer cortes forçados.</td>
+          </tr>
+          <tr>
+            <td><strong>Espaço de Cor</strong></td>
+            <td>sRGB (nunca CMYK ou DCI-P3)</td>
+            <td>Evita que as cores fiquem desbotadas após o upload na Meta API.</td>
+          </tr>
+          <tr>
+            <td><strong>Compressão Recomendada</strong></td>
+            <td>JPEG 92-95% ou WebP de alta qualidade</td>
+            <td>Mantém o arquivo abaixo de 1.2 MB com nitidez perfeita em textos finos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span class="author-badge">Ivan Nogueira • @escoladeferramentas</span>
+      <span class="page-number">02 // 05</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PÁGINA 3: O MAPA MILIMÉTRICO DA SAFE ZONE
+       ========================================================================== */
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">02. Safe Zone Inviolável</div>
+      <div class="doc-ref">DOC: SZ-REELS-MAP // ESCOLA DE FERRAMENTAS</div>
+    </div>
+
+    <div class="page-body">
+      <h2 class="content-title">Onde Você Não Pode Falhar</h2>
+      <p class="content-subtitle">As 4 margens milimétricas para proteger seu título e CTA da interface do Instagram e do Reels.</p>
+
+      <div class="safezone-layout">
+        <!-- Smartphone com diagrama visual -->
+        <div class="safezone-phone-frame">
+          <div class="safezone-screen">
+            <div class="sz-zone-top">▲ 180px TOPO (Interface / Status)</div>
+
+            <div class="sz-middle-row">
+              <div class="sz-zone-left">50px</div>
+              <div class="sz-active-canvas">
+                <span class="sz-active-title">Canvas Ativo</span>
+                <span class="sz-active-desc">910 × 990 px livres para headline, 3D e conteúdo nobre</span>
+              </div>
+              <div class="sz-zone-right">120px BOTÕES</div>
+            </div>
+
+            <div class="sz-zone-bottom">▼ 180px BASE (Legenda / Áudio)</div>
+          </div>
+        </div>
+
+        <!-- Descrição técnica das zonas -->
+        <div class="safezone-info-cards">
+          <div class="sz-card">
+            <h4><span class="sz-pill pill-red">180px Topo</span> Margem Superior</h4>
+            <p>Espaço reservado para foto de perfil, nome de usuário, botão de seguir e barra de status do smartphone. Qualquer texto posicionado aqui fica ilegível.</p>
+          </div>
+
+          <div class="sz-card">
+            <h4><span class="sz-pill pill-red">180px Base</span> Margem Inferior</h4>
+            <p>Área coberta pela legenda nativa expandida, ícone do carrossel, contador de curtidas e botão de áudio. Reserve este espaço apenas para fundo ou rodapés vazados.</p>
+          </div>
+
+          <div class="sz-card">
+            <h4><span class="sz-pill pill-red">120px Direita</span> Coluna de Interação</h4>
+            <p>Onde ficam os botões verticais nativos do Instagram: Curtir, Comentários, Compartilhar e Salvar. Não posicione rostos ou palavras-chave encostados à direita.</p>
+          </div>
+
+          <div class="sz-card">
+            <h4><span class="sz-pill pill-amber">50px Esquerda</span> Respiro de Leitura</h4>
+            <p>Margem necessária para evitar que o primeiro caractere das frases encoste na borda do display, garantindo conforto visual imediato.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerta da Regra dos Reels -->
+      <div class="warning-box">
+        <strong>⚠️ A Armadilha da Música de Fundo (Efeito Reels):</strong> Se você adicionar qualquer trilha sonora ou música na capa do seu carrossel, o algoritmo do Instagram passa a exibi-lo também na aba Reels. Quando isso acontece, a interface do Reels cobre até 200px da base e 150px da direita. Respeitar este gabarito é a única garantia de que seu post continuará perfeito em qualquer lugar.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="author-badge">Ivan Nogueira • @escoladeferramentas</span>
+      <span class="page-number">03 // 05</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PÁGINA 4: ENGENHARIA DE RETENÇÃO DOS 10 SLIDES
+       ========================================================================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">03. Estrutura Psicológica</div>
+      <div class="doc-ref">DOC: RET-FLOW-10 // ESCOLA DE FERRAMENTAS</div>
+    </div>
+
+    <div class="page-body">
+      <h2 class="content-title">A Anatomia dos 10 Slides</h2>
+      <p class="content-subtitle">Como orquestrar a tensão psicológica para que o leitor deslize do primeiro ao último slide.</p>
+
+      <div class="timeline-grid">
+        <!-- Slide 01 -->
+        <div class="timeline-row hero-step">
+          <div class="tl-slide-badge">
+            <span>SLIDE 01</span>
+            <span class="phase-name">O Gancho</span>
+          </div>
+          <div class="tl-content-main">
+            <h4>Quebra de Padrão em &lt; 0.8s</h4>
+            <p>Headline ultra-bold condensada (50pt+) com grifos coloridos. Elemento 3D de alta tensão visual ou foto autêntica com autoridade imediata.</p>
+          </div>
+          <div class="tl-target-metric">
+            <span class="metric-tag metric-stop">Parada de Scroll</span>
+            <span>Stop Rate &gt; 65%</span>
+          </div>
+        </div>
+
+        <!-- Slide 02 -->
+        <div class="timeline-row">
+          <div class="tl-slide-badge">
+            <span>SLIDE 02</span>
+            <span class="phase-name">A Transição</span>
+          </div>
+          <div class="tl-content-main">
+            <h4>O Compromisso de Leitura (G/E/C)</h4>
+            <p>Mostre o que a pessoa ganha, o que ela evita ou por que deve confiar em você. Este slide decide se ela desliza até o final ou abandona.</p>
+          </div>
+          <div class="tl-target-metric">
+            <span class="metric-tag metric-commit">Compromisso</span>
+            <span>Dwell Time +3s</span>
+          </div>
+        </div>
+
+        <!-- Slides 03 a 07 -->
+        <div class="timeline-row">
+          <div class="tl-slide-badge">
+            <span>SLIDES 03-07</span>
+            <span class="phase-name">Desenvolvimento</span>
+          </div>
+          <div class="tl-content-main">
+            <h4>Tensão em Camadas &amp; Revelação Progressiva</h4>
+            <p>Revele o método aos poucos. Use analogias, diagramas técnicos, estatísticas e erros comuns. Entregar tudo cedo demais mata o carrossel.</p>
+          </div>
+          <div class="tl-target-metric">
+            <span class="metric-tag metric-tension">Loop Aberto</span>
+            <span>Taxa Swipe &gt; 80%</span>
+          </div>
+        </div>
+
+        <!-- Slides 08 e 09 -->
+        <div class="timeline-row hero-step">
+          <div class="tl-slide-badge">
+            <span>SLIDES 08-09</span>
+            <span class="phase-name">O Clímax</span>
+          </div>
+          <div class="tl-content-main">
+            <h4>A Virada &amp; Momento &quot;Agora Faz Sentido&quot;</h4>
+            <p>A entrega da tese central, do mapa ou da solução definitiva. É o slide que gera o impulso incontrolável de salvar e encaminhar.</p>
+          </div>
+          <div class="tl-target-metric">
+            <span class="metric-tag metric-climax">Memorabilidade</span>
+            <span>Salvamento Máximo</span>
+          </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="timeline-row">
+          <div class="tl-slide-badge">
+            <span>SLIDE 10</span>
+            <span class="phase-name">O Fechamento</span>
+          </div>
+          <div class="tl-content-main">
+            <h4>Ação Óbvia &amp; Automação de Lead</h4>
+            <p>Não termine em silêncio. Forneça uma única instrução direta associada à palavra-chave do ManyChat (ex: &quot;Comenta CARROSSEL&quot;).</p>
+          </div>
+          <div class="tl-target-metric">
+            <span class="metric-tag metric-convert">Conversão DM</span>
+            <span>Comentários 5x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="author-badge">Ivan Nogueira • @escoladeferramentas</span>
+      <span class="page-number">04 // 05</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PÁGINA 5: CHECKLIST EXECUTIVO (15 ITENS)
+       ========================================================================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">04. Checklist Pré-Postagem</div>
+      <div class="doc-ref">DOC: CHK-EXEC-15 // ESCOLA DE FERRAMENTAS</div>
+    </div>
+
+    <div class="page-body">
+      <h2 class="content-title">Gabarito Executivo de Aprovação</h2>
+      <p class="content-subtitle">Audite seu carrossel contra estes 15 pontos antes de apertar o botão de publicar.</p>
+
+      <div class="checklist-columns">
+        <!-- Coluna 1 -->
+        <div class="chk-category">
+          <h4>📐 Arquitetura &amp; Dimensões</h4>
+          <div class="chk-items">
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Resolução exata em <strong>1080 × 1350 pixels (4:5)</strong> em todos os slides.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Espaço de cor calibrado em <strong>sRGB</strong> para evitar desbotamento.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Arquivos otimizados abaixo de <strong>1.2 MB por slide</strong>.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Sequência numerada sem saltos (ex: slide-01 a slide-10).</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 14px;">🛡️ Safe Zone &amp; Enquadramento</h4>
+          <div class="chk-items">
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>180px livres no <strong>topo</strong> de todos os slides.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>180px livres na <strong>base</strong> (sem textos críticos).</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>120px livres na <strong>margem direita</strong> para botões do app.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="chk-category">
+          <h4>🔤 Tipografia &amp; Legibilidade</h4>
+          <div class="chk-items">
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Título da capa com <strong>pelo menos 50pt</strong> (ultra-bold).</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Corpo de texto interno com <strong>mínimo de 14pt</strong>.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Uso de <strong>grifos coloridos</strong> para quebrar blocos pretos.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Texto 100% em português sem erros ortográficos.</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 14px;">🎯 Estratégia &amp; Conversão</h4>
+          <div class="chk-items">
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Slide 02 fecha o compromisso de leitura com Ganho/Evita.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Slide 08 ou 09 entrega o momento memorável de salvamento.</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Slide 10 tem <strong>chamada ManyChat direta</strong> (palavra-chave única).</span>
+            </div>
+            <div class="chk-item">
+              <span class="chk-box"></span>
+              <span>Legenda do post alinhada ao gatilho prometido no último slide.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selo de Encerramento -->
+      <div class="seal-closing-box">
+        <div class="seal-closing-text">
+          <h4>Pronto para Dominar o Feed com IA</h4>
+          <p>Este gabarito foi testado e validado em operações reais gerando múltiplos carrosséis com milhares de interações orgânicas.</p>
+        </div>
+        <div class="signature-badge">
+          <div class="sig-name">Ivan Nogueira</div>
+          <div style="color: var(--text-subtle);">Criativo AI Studio // 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="author-badge">Ivan Nogueira • @escoladeferramentas</span>
+      <span class="page-number">05 // 05</span>
+    </div>
+  </div>
+
+</body>
+</html>
