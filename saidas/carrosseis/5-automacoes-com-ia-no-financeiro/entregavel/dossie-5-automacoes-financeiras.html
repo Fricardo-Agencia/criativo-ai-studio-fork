@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dossiê Executivo — 5 Automações com IA no Financeiro | Escola de Ferramentas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    :root {
+      --bg: #0c0e12;
+      --card-bg: rgba(22, 26, 35, 0.75);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --orange: #ff5500;
+      --orange-bright: #ff6e1a;
+      --orange-glow: rgba(255, 85, 0, 0.25);
+      --amber: #f59e0b;
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.2);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    body {
+      background-color: #050608;
+      font-family: var(--font-main);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      background: radial-gradient(circle at 85% 12%, rgba(255, 85, 0, 0.12) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+                  #0a0c10;
+      padding: 14mm 16mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Moldura técnica da página */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 8mm;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+      border-radius: 6px;
+    }
+
+    /* Marcadores de canto */
+    .corner-mark {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: rgba(255, 85, 0, 0.45);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .cm-tl { top: 8mm; left: 8mm; border-width: 2px 0 0 2px; }
+    .cm-tr { top: 8mm; right: 8mm; border-width: 2px 2px 0 0; }
+    .cm-bl { bottom: 8mm; left: 8mm; border-width: 0 0 2px 2px; }
+    .cm-br { bottom: 8mm; right: 8mm; border-width: 0 2px 2px 0; }
+
+    /* Cabeçalho da página */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .brand-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--orange);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--orange);
+    }
+    .doc-meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-subtle);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Rodapé da página */
+    .page-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 8px;
+      margin-top: 10px;
+      font-size: 9px;
+      color: var(--text-subtle);
+      font-family: var(--font-mono);
+    }
+    .footer-left { display: flex; align-items: center; gap: 6px; }
+    .footer-right { color: var(--orange); font-weight: 600; }
+
+    /* Componentes Compartilhados */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .badge-orange { background: rgba(255, 85, 0, 0.15); color: #ff7a29; border: 1px solid rgba(255, 85, 0, 0.35); }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    .card-highlight {
+      border-color: rgba(255, 85, 0, 0.35);
+      background: linear-gradient(135deg, rgba(255, 85, 0, 0.06) 0%, rgba(22, 26, 35, 0.8) 100%);
+    }
+
+    h1 { font-size: 26px; font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: #ffffff; }
+    h2 { font-size: 16px; font-weight: 800; line-height: 1.25; letter-spacing: -0.01em; color: #ffffff; }
+    h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--orange-bright); }
+    p { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+    .code-block {
+      background: #06070a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      position: relative;
+    }
+    .code-label {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 8px;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .table-tech {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+    .table-tech th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .table-tech td {
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+    }
+
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 8px 0;
+    }
+    .flow-step {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 8px;
+      text-align: center;
+    }
+    .flow-step-num { font-size: 8px; font-family: var(--font-mono); color: var(--orange); font-weight: 700; }
+    .flow-step-title { font-size: 9.5px; font-weight: 600; color: #fff; margin-top: 2px; }
+    .flow-arrow { color: var(--orange); font-weight: 800; font-size: 12px; }
+
+    /* ESTILOS PÁGINA 1 - CAPA */
+    .cover-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 16px;
+      padding: 0 4mm;
+    }
+    .cover-hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cover-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cover-title-group h1 {
+      font-size: 30px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .cover-title-group h1 span.highlight {
+      color: var(--orange-bright);
+      text-shadow: 0 0 20px var(--orange-glow);
+    }
+    .cover-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .stat-box {
+      background: rgba(255, 85, 0, 0.05);
+      border: 1px solid rgba(255, 85, 0, 0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .stat-num {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--orange-bright);
+      font-family: var(--font-mono);
+    }
+    .stat-desc {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: CAPA ==================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">
+        <span class="brand-dot"></span>
+        <span>Escola de Ferramentas • Blueprint B2B</span>
+      </div>
+      <div class="doc-meta">REF: DOSSIE-FINANCEIRO-IA-2026</div>
+    </div>
+
+    <div class="cover-content">
+      <div class="cover-hero-tag">
+        <span class="badge badge-orange">[ GUIA PRÁTICO EXECUTIVO ]</span>
+        <span class="badge badge-green">NÍVEL: IMPLEMENTAÇÃO IMEDIATA</span>
+      </div>
+
+      <div class="cover-title-group">
+        <h1>AS 5 AUTOMAÇÕES COM IA QUE CORTAM <span class="highlight">15 HORAS POR SEMANA</span> DO SEU FINANCEIRO</h1>
+        <p style="font-size: 13px; color: #cbd5e1; max-width: 90%;">
+          O roteiro definitivo de arquitetura técnica, webhooks e prompts prontos para transformar sua retaguarda financeira em um centro de inteligência ágil, sem erros humanos e com fechamento no piloto automático.
+        </p>
+      </div>
+
+      <div class="cover-summary">
+        <div class="stat-box">
+          <div class="stat-num">-15H / SEM</div>
+          <div class="stat-desc">Economia média em rotinas operacionais manuais de digitação, cobrança e conciliação.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">0% ERROS</div>
+          <div class="stat-desc">Lançamentos de notas fiscais e conciliação bancária integrados sem digitação cega.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">-68% INADIMP.</div>
+          <div class="stat-desc">Queda média na taxa de atraso de pagamentos com régua empática preventiva no WhatsApp.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">DRE ÀS 07H</div>
+          <div class="stat-desc">Demonstrativo consolidado diário na mesa da diretoria antes do início do expediente.</div>
+        </div>
+      </div>
+
+      <div class="card card-highlight" style="margin-top: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+          <h3 style="color: #fff;">O que você vai encontrar neste material:</h3>
+          <span style="font-family: var(--font-mono); font-size: 9px; color: var(--orange);">5 MÓDULOS TÉCNICOS</span>
+        </div>
+        <p style="font-size: 10px; color: var(--text-muted);">
+          1. <strong>OCR de Notas Fiscais:</strong> Prompt de extração estruturada (JSON) para envio automático ao ERP.<br>
+          2. <strong>Cobrança Preventiva:</strong> Régua em 3 tempos (D-3, D0, D+3) com templates humanizados para WhatsApp.<br>
+          3. <strong>Conciliação Pix:</strong> Arquitetura de webhook instantâneo e baixa de faturas no CRM.<br>
+          4. <strong>DRE Diário Automático:</strong> Pipeline de cruzamento de extratos e contas a pagar.<br>
+          5. <strong>Alerta Preditivo de Caixa:</strong> Algoritmo de projeção financeira de 15 dias para os sócios.
+        </p>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px;">
+        <div>
+          <div style="font-size: 10px; font-weight: 700; color: #fff;">Ivan Nogueira</div>
+          <div style="font-size: 9px; color: var(--text-subtle); font-family: var(--font-mono);">@escoladeferramentas • Engenharia de IA para Negócios</div>
+        </div>
+        <div class="badge badge-amber">SETEMBRO 2026 • DISTRIBUIÇÃO EXCLUSIVA</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">Escola de Ferramentas © 2026 • Todos os direitos reservados</div>
+      <div class="footer-right">PÁGINA 01 / 05</div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 2: AUTOMAÇÃO 01 - OCR DE NFS ==================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">
+        <span class="brand-dot"></span>
+        <span>Automação 01 • Entrada de Notas</span>
+      </div>
+      <div class="doc-meta">MÓDULO: OCR & VISION AGENTS</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <div>
+          <span class="badge badge-orange">AUTOMAÇÃO 01</span>
+          <h2 style="font-size: 17px; margin-top: 4px;">OCR Inteligente de Notas Fiscais para ERP</h2>
+        </div>
+        <div class="badge badge-green">ECONOMIA: ~4H/SEMANA</div>
+      </div>
+      <p style="margin-bottom: 10px;">
+        Elimina 100% da digitação de notas fiscais de compras e serviços. O documento (PDF ou foto de celular) é processado por um modelo de visão multimodal que extrai dados em formato tabular estrito e dispara um webhook para seu sistema de gestão (Omie, Bling, Conta Azul ou Totvs).
+      </p>
+
+      <div class="card" style="margin-bottom: 10px;">
+        <h3>Arquitetura do Fluxo no n8n / Make</h3>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-num">ETAPA 1</div>
+            <div class="flow-step-title">Trigger de Entrada</div>
+            <p style="font-size: 8px; color: var(--text-subtle);">Email financeiro@ ou WhatsApp recebendo PDF/foto</p>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step">
+            <div class="flow-step-num">ETAPA 2</div>
+            <div class="flow-step-title">Claude 3.5 / GPT-4o</div>
+            <p style="font-size: 8px; color: var(--text-subtle);">Prompt de visão com Schema JSON rígido</p>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step">
+            <div class="flow-step-num">ETAPA 3</div>
+            <div class="flow-step-title">Validação & Regras</div>
+            <p style="font-size: 8px; color: var(--text-subtle);">Checa CNPJ contra cadastro e limites</p>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step">
+            <div class="flow-step-num">ETAPA 4</div>
+            <div class="flow-step-title">Lançamento ERP</div>
+            <p style="font-size: 8px; color: var(--text-subtle);">Cria contas a pagar com boleto anexado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-highlight" style="margin-bottom: 10px;">
+        <div class="code-label">PROMPT DE SISTEMA (COPIAR E COLAR)</div>
+        <h3 style="margin-bottom: 6px;">Prompt Executivo de Extração Estruturada</h3>
+        <div class="code-block">
+VOCÊ É UM EXTRATOR FINANCEIRO ESPECIALIZADO EM NOTAS FISCAIS BRASILEIRAS (NF-e, NFS-e, CT-e).
+ANALISE A IMAGEM OU PDF ANEXADO E RETORNE EXCLUSIVAMENTE UM OBJETO JSON VÁLIDO CONFORME A ESTRUTURA:
+
+{
+  "tipo_documento": "NFS-e" | "NF-e" | "FATURA",
+  "numero_nota": "string",
+  "data_emissao": "YYYY-MM-DD",
+  "data_vencimento": "YYYY-MM-DD",
+  "prestador": {
+    "cnpj_cpf": "apenas numeros",
+    "razao_social": "string",
+    "cidade_uf": "string"
+  },
+  "valores": {
+    "valor_bruto": 0.00,
+    "valor_liquido": 0.00,
+    "impostos_retidos": {
+      "irrf": 0.00, "pis": 0.00, "cofins": 0.00, "csll": 0.00, "iss": 0.00
+    }
+  },
+  "dados_bancarios_para_pagamento": {
+    "chave_pix": "string ou null",
+    "codigo_barras_boleto": "linha digitavel ou null"
+  }
+}
+REGRA CRÍTICA: NUNCA INVENTE DADOS. SE UM CAMPO NÃO ESTIVER VISÍVEL, RETORNE NULL. RETORNE APENAS O JSON PURO.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tabela de Mapeamento de Falhas e Trava de Segurança</h3>
+        <table class="table-tech" style="margin-top: 6px;">
+          <thead>
+            <tr>
+              <th>Cenário Detectado</th>
+              <th>Ação do Agente</th>
+              <th>Impacto Operacional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Valor > R$ 10.000</strong></td>
+              <td>Pede aprovação de 1 clique no WhatsApp do Diretor</td>
+              <td>Prevenção contra pagamentos de alto valor não autorizados</td>
+            </tr>
+            <tr>
+              <td><strong>Nota Duplicada</strong></td>
+              <td>Checa número e CNPJ no banco de dados do ERP; aborta se já existir</td>
+              <td>Zero risco de pagar o mesmo fornecedor duas vezes</td>
+            </tr>
+            <tr>
+              <td><strong>Boleto sem código legível</strong></td>
+              <td>Marca como pendência de conferência manual no canal de alertas</td>
+              <td>Time foca apenas nos 2% de exceções, não nos 98% que passam direto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">Escola de Ferramentas • Guia de Automações Financeiras</div>
+      <div class="footer-right">PÁGINA 02 / 05</div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 3: AUTOMAÇÃO 02 - COBRANÇA EMPÁTICA ==================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">
+        <span class="brand-dot"></span>
+        <span>Automação 02 • Recuperação de Receita</span>
+      </div>
+      <div class="doc-meta">MÓDULO: WHATSAPP MESSAGING AGENT</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <div>
+          <span class="badge badge-orange">AUTOMAÇÃO 02</span>
+          <h2 style="font-size: 17px; margin-top: 4px;">Cobrança Preventiva Empática no WhatsApp</h2>
+        </div>
+        <div class="badge badge-green">ECONOMIA: ~5H/SEMANA</div>
+      </div>
+      <p style="margin-bottom: 10px;">
+        A maior parte dos atrasos não ocorre por má-fé, mas por esquecimento ou burocracia do contas a pagar do cliente. O agente financeiro automatiza o contato com réguas personalizadas no tom certo, enviando o link de pagamento instantâneo antes e depois do vencimento.
+      </p>
+
+      <div class="card card-highlight" style="margin-bottom: 10px;">
+        <h3>A Régua em 3 Estágios de Alta Conversão</h3>
+        <p style="font-size: 10px; margin-bottom: 8px;">
+          Esta régua foi desenhada para manter o cliente próximo da empresa, sem parecer uma cobrança fria ou agressiva de assessoria jurídica:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Estágio 1 -->
+          <div style="background: rgba(0,0,0,0.35); border-left: 3px solid var(--amber); padding: 8px 10px; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 10px; font-weight: 700; color: #fbbf24;">ESTÁGIO 1: D-3 (Lembrete Cortês de Antecedência)</span>
+              <span style="font-size: 8.5px; font-family: var(--font-mono); color: var(--text-subtle);">Disparo às 09h30</span>
+            </div>
+            <div style="font-size: 9.5px; color: #e2e8f0; margin-top: 4px; font-style: italic;">
+              "Olá, {NOME_RESPONSAVEL}! Passando só para facilitar o fechamento da sua semana: sua fatura #{FATURA} da {NOME_EMPRESA} vence na próxima sexta-feira (R$ {VALOR}).<br>
+              Se preferir agendar ou pagar no Pix, segue a chave copia-e-cola abaixo 👇<br>
+              <code>{CHAVE_PIX}</code><br>
+              Qualquer dúvida com a nota fiscal em anexo, é só me chamar aqui!"
+            </div>
+          </div>
+
+          <!-- Estágio 2 -->
+          <div style="background: rgba(0,0,0,0.35); border-left: 3px solid var(--green); padding: 8px 10px; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 10px; font-weight: 700; color: #34d399;">ESTÁGIO 2: D0 (Dia do Vencimento sem Atrito)</span>
+              <span style="font-size: 8.5px; font-family: var(--font-mono); color: var(--text-subtle);">Disparo às 10h00</span>
+            </div>
+            <div style="font-size: 9.5px; color: #e2e8f0; margin-top: 4px; font-style: italic;">
+              "Bom dia, {NOME_RESPONSAVEL}! Lembrando que hoje vence o pagamento referente ao serviço de {SERVICO}.<br>
+              O boleto e a chave Pix estão aqui na mensagem para facilitar sua rotina bancária. Se já fez o agendamento, por favor desconsidere este aviso! Tenha um ótimo dia."
+            </div>
+          </div>
+
+          <!-- Estágio 3 -->
+          <div style="background: rgba(0,0,0,0.35); border-left: 3px solid var(--orange); padding: 8px 10px; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 10px; font-weight: 700; color: #ff7a29;">ESTÁGIO 3: D+3 (Aviso de Pendência com Solicitação de Ajuda)</span>
+              <span style="font-size: 8.5px; font-family: var(--font-mono); color: var(--text-subtle);">Disparo às 14h00</span>
+            </div>
+            <div style="font-size: 9.5px; color: #e2e8f0; margin-top: 4px; font-style: italic;">
+              "Olá, {NOME_RESPONSAVEL}, tudo bem? Notei que a fatura #{FATURA} constou como pendente em nosso sistema ontem.<br>
+              Aconteceu algum problema com o boleto ou precisa de uma segunda via atualizada com nova data? Me avise aqui para eu regularizar para você sem juros!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3 Regras de Ouro na Cobrança por IA</h3>
+        <ul style="font-size: 9.5px; color: var(--text-muted); margin-left: 14px; margin-top: 6px; line-height: 1.6;">
+          <li><strong>Zero Intermediários:</strong> A mensagem deve sair do WhatsApp oficial da empresa com o nome do atendente ou do financeiro (nunca parecendo robô genérico "Digite 1 para pagar").</li>
+          <li><strong>Chave Pix Sempre em Linha Única:</strong> Nunca mande a chave Pix misturada no meio do parágrafo. O cliente clica, copia no celular e cola no app do banco em 5 segundos.</li>
+          <li><strong>Interrupção Imediata na Resposta:</strong> Se o cliente responder dizendo "já paguei" ou "estou com um problema", o agente pausa a régua automaticamente e transfere para um humano com o histórico resumido.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">Escola de Ferramentas • Guia de Automações Financeiras</div>
+      <div class="footer-right">PÁGINA 03 / 05</div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 4: AUTOMAÇÕES 03 & 04 ==================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">
+        <span class="brand-dot"></span>
+        <span>Automações 03 & 04 • Conciliação & DRE</span>
+      </div>
+      <div class="doc-meta">MÓDULO: DATA PIPELINES & WEBHOOKS</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <div>
+          <span class="badge badge-orange">AUTOMAÇÃO 03 & 04</span>
+          <h2 style="font-size: 17px; margin-top: 4px;">Conciliação Pix em Tempo Real & DRE Diário</h2>
+        </div>
+        <div class="badge badge-green">ECONOMIA: ~6H/SEMANA</div>
+      </div>
+      <p style="margin-bottom: 10px;">
+        A rotina mais estressante de fechamento financeiro é casar comprovantes bancários com faturas no ERP. Veja como automatizar o reconhecimento do Pix em segundos e gerar o Demonstrativo de Resultados do Exercício (DRE) todo dia às 07h da manhã.
+      </p>
+
+      <!-- Bloco Automação 03 -->
+      <div class="card" style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <h3>03. Conciliação Pix em Tempo Real (Webhook Bancário)</h3>
+          <span class="badge badge-orange">TEMPO DE RESPOSTA: 3s</span>
+        </div>
+        <p style="font-size: 9.5px; margin-bottom: 8px;">
+          Integrando o webhook da sua conta PJ (Asaas, Cora, Inter, Mercado Pago, Itaú ou Bradesco) ao n8n:
+        </p>
+
+        <div class="code-block" style="font-size: 8.5px;">
+// FLUXO DO WEBHOOK:
+1. BANCO RECEBE O PIX ➔ Dispara POST HTTP para /webhook/pix-recebido
+2. PAYLOAD RECEBIDO: { endToEndId, valor: 4500.00, pagador_cpf_cnpj, txid }
+3. N8N CONSULTA O ERP: Busca título aberto com o mesmo valor ou mesmo CNPJ do pagador.
+4. BAIXA IMEDIATA: PUT /api/contas-a-receber/liquidar { id_titulo, data_liquidacao: HOJE }
+5. FEEDBACK AO CLIENTE: Envia comprovante de quitação em PDF no WhatsApp do comprador.
+        </div>
+      </div>
+
+      <!-- Bloco Automação 04 -->
+      <div class="card card-highlight">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <h3>04. DRE Diário Consolidado às 07h da Manhã</h3>
+          <span class="badge badge-green">PILOTO AUTOMÁTICO</span>
+        </div>
+        <p style="font-size: 9.5px; margin-bottom: 8px;">
+          O gestor não precisa mais esperar o dia 10 do mês seguinte para saber se a operação está dando lucro. Todo dia às 07h, o agente executa este cálculo:
+        </p>
+
+        <div style="background: rgba(0,0,0,0.4); border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="display: flex; justify-content: space-between; font-size: 9px; font-family: var(--font-mono); padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <span style="color: #94a3b8;">(+) RECEITA BRUTA DA VÉSPERA</span>
+            <span style="color: #34d399; font-weight: 700;">R$ 18.450,00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 9px; font-family: var(--font-mono); padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <span style="color: #94a3b8;">(-) CUSTOS VARIÁVEIS / TAXAS DE GATEWAY (5,2%)</span>
+            <span style="color: #f87171;">- R$ 959,40</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 9px; font-family: var(--font-mono); padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <span style="color: #94a3b8;">(-) DESPESAS FIXAS RATEADAS POR DIA ÚTIL</span>
+            <span style="color: #f87171;">- R$ 3.200,00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 9.5px; font-family: var(--font-mono); padding: 4px 0; font-weight: 700;">
+            <span style="color: #fbbf24;">(=) RESULTADO OPERACIONAL LÍQUIDO DO DIA</span>
+            <span style="color: #fbbf24;">R$ 14.290,60 (Margem: 77,4%)</span>
+          </div>
+        </div>
+
+        <p style="font-size: 9px; color: var(--text-muted);">
+          <strong>Onde é entregue:</strong> Um card formatado no canal <code>#diretoria-financeiro</code> do Slack ou direto no WhatsApp particular dos sócios fundadores.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">Escola de Ferramentas • Guia de Automações Financeiras</div>
+      <div class="footer-right">PÁGINA 04 / 05</div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 5: AUTOMAÇÃO 05 & CHECKLIST ==================== -->
+  <div class="page">
+    <div class="corner-mark cm-tl"></div>
+    <div class="corner-mark cm-tr"></div>
+    <div class="corner-mark cm-bl"></div>
+    <div class="corner-mark cm-br"></div>
+
+    <div class="page-header">
+      <div class="brand-tag">
+        <span class="brand-dot"></span>
+        <span>Automação 05 • Checklist de Ação</span>
+      </div>
+      <div class="doc-meta">MÓDULO: IMPLEMENTAÇÃO EM 7 DIAS</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <div>
+          <span class="badge badge-orange">AUTOMAÇÃO 05</span>
+          <h2 style="font-size: 17px; margin-top: 4px;">Alerta Preditivo de Fluxo de Caixa no WhatsApp</h2>
+        </div>
+        <div class="badge badge-amber">PROTEÇÃO DE LIQUIDEZ</div>
+      </div>
+      <p style="margin-bottom: 10px;">
+        Em vez de descobrir que o caixa secou no dia de pagar a folha salarial, o agente roda uma simulação contínua das entradas certas contra as obrigações a vencer nos próximos 15 dias. Se o saldo projetado romper a margem de segurança (ex: &lt; R$ 30.000), ele dispara o aviso na hora com 3 ações corretivas.
+      </p>
+
+      <!-- Bloco Checklist -->
+      <div class="card card-highlight" style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <h3>Checklist de Implementação em 7 Dias</h3>
+          <span class="badge badge-green">PLANO DE AÇÃO</span>
+        </div>
+
+        <table class="table-tech">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Dia</th>
+              <th style="width: 35%;">Ação Prática</th>
+              <th style="width: 50%;">Entregável do Dia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dia 1</strong></td>
+              <td>Mapeamento de Acessos e APIs</td>
+              <td>Chaves de API geradas no ERP, Banco PJ e Gateway de Pagamento.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 2</strong></td>
+              <td>Setup do Ambiente de Automação</td>
+              <td>Instância n8n self-hosted ou conta Make com credenciais salvas.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 3</strong></td>
+              <td>Automação de OCR de Notas Fiscais</td>
+              <td>Prompt de extração testado com 10 notas reais e taxa de acerto > 98%.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 4</strong></td>
+              <td>Conexão do Webhook Pix</td>
+              <td>Primeiro pagamento de teste liquidado e baixado no ERP em tempo real.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 5</strong></td>
+              <td>Configuração da Régua WhatsApp</td>
+              <td>Instalação do Evolution API / Z-API e ativação das mensagens D-3 e D0.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 6</strong></td>
+              <td>DRE Diário e Simulação de Caixa</td>
+              <td>Cálculo diário rodando em sandbox e enviando relatório no canal de teste.</td>
+            </tr>
+            <tr>
+              <td><strong>Dia 7</strong></td>
+              <td>Go-Live Oficial & Auditoria</td>
+              <td>Liberação para a equipe e 15 horas semanais liberadas para sempre.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Card de Finalização & Suporte -->
+      <div class="card" style="background: rgba(255, 85, 0, 0.08); border-color: rgba(255, 85, 0, 0.3);">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <h3 style="color: #fff; font-size: 13px;">Precisa de Apoio Técnico para Implementar na Sua Empresa?</h3>
+            <p style="font-size: 9.5px; margin-top: 4px; color: #cbd5e1;">
+              Na <strong>Escola de Ferramentas</strong>, desenhamos e implementamos arquiteturas completas de multiagentes e automações financeiras sob medida para negócios digitais e empresas tradicionais.
+            </p>
+          </div>
+          <div style="text-align: right; min-width: 140px;">
+            <div class="badge badge-orange" style="font-size: 10px; padding: 6px 12px;">@escoladeferramentas</div>
+            <div style="font-size: 8.5px; color: var(--text-subtle); margin-top: 4px; font-family: var(--font-mono);">Mande um Direct no Instagram</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">Escola de Ferramentas • Ivan Nogueira (@escoladeferramentas)</div>
+      <div class="footer-right">PÁGINA 05 / 05 • FIM DO DOSSIÊ</div>
+    </div>
+  </div>
+
+</body>
+</html>

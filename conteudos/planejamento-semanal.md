@@ -122,26 +122,22 @@
   6. *CTA:* Salve agora para aplicar amanhã na primeira reunião do seu time.
 - **CTA:** Salvar.
 
-#### 🕜 13:30 | Carrossel Técnico / Automações Financeiras
+#### 🕜 13:30 | Carrossel Técnico / Automações Financeiras (Pronto & Aprovado)
 - **ID:** `POST-2026-09-06-13H30`
-- **Data/Hora:** 06/09/2026 às 13:30
+- **Data/Hora:** 06/09/2026 às 13:30 (Reagendado para pico de domingo 18h30)
+- **Status:** Aprovado na fila e sincronizado no GitHub Pages
 - **Pilar:** Playbooks & Bastidores
-- **Ponto Focal:** `mockup_cenario` (Dashboard financeiro limpo com alertas automáticos).
+- **Ponto Focal:** Modelo Contínuo Panorâmico + Foto Real do Ivan na Bike + Mockups 3D de finanças
 - **Headline (Capa):**
   * **Título Principal:** **5 AUTOMAÇÕES COM IA QUE CORTAM**
-  * **Destaque:** **15 HORAS SEMANAIS DO SEU FINANCEIRO.**
-  * **Gatilho de Capa:** *Comenta FINANCEIRO.*
+  * **Destaque:** **15 HORAS DO SEU FINANCEIRO.**
+  * **Gatilho de Capa:** *Comenta FINANCEIRO + Baixe o Guia em PDF.*
 - **Objetivo:** Apontar as 5 rotinas financeiras mais lentas e como automatizar cada uma com IA e webhooks.
-- **Estrutura dos Slides (8 slides):**
-  1. *Capa:* Headline direta + render 3D de conciliação bancária.
-  2. *Automação 1:* Leitura e extração de dados de notas fiscais (OCR inteligente para ERP).
-  3. *Automação 2:* Cobrança preventiva no WhatsApp com IA empática (zero atrito com cliente).
-  4. *Automação 3:* Conciliação de comprovantes Pix e boletos em tempo real.
-  5. *Automação 4:* Geração automática do DRE diário sem depender de fechamento manual.
-  6. *Automação 5:* Alerta preditivo de fluxo de caixa no WhatsApp da diretoria.
-  7. *O Impacto:* Eliminação de 60h/mês de digitação estressante.
-  8. *Slide Final (CTA ManyChat):* *"Comenta `FINANCEIRO` que te envio o mapa com as ferramentas de cada automação na DM."*
+- **Entregável Prometido & Gerado:** Dossiê Executivo em PDF Cinematográfico (5 páginas A4) + HTML interativo.
 - **Palavra-chave ManyChat:** `FINANCEIRO`
+- **Link do PDF:** `https://navibotlab.github.io/meu-social-midia/saidas/carrosseis/5-automacoes-com-ia-no-financeiro/entregavel/dossie-5-automacoes-financeiras.pdf`
+- **Prévia Pública:** `https://navibotlab.github.io/meu-social-midia/previas/5-automacoes-com-ia-no-financeiro.html`
+
 
 #### 🕔 17:00 | Post Individual
 - **ID:** `POST-2026-09-06-17H`
