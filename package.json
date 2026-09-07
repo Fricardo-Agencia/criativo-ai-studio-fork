@@ -29,7 +29,10 @@
     "pages:validar": "node automacoes/publicar-github-pages.mjs --validar",
     "atualizar": "node automacoes/atualizar.mjs",
     "atualizar:forcar": "node automacoes/atualizar.mjs --forcar",
-    "instalar-skills": "node automacoes/instalar-skills.mjs"
+    "instalar-skills": "node automacoes/instalar-skills.mjs",
+    "video:preview": "cd video ; npm run preview",
+    "video:render": "cd video ; npm run render",
+    "video:transcrever": "cd video ; npm run transcrever"
   },
   "dependencies": {
     "sharp": "^0.35.4"

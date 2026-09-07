@@ -60,7 +60,10 @@ const skills = [
   'criar-identidade-visual',
   'configurar-instagram',
   'analise-metricas',
-  'gerar-stories'
+  'gerar-stories',
+  'gerador-de-entregaveis',
+  'engenharia-reversa-concorrentes',
+  'consistencia-personagem'
 ];
 
 async function existe(caminho) {
@@ -87,7 +90,7 @@ async function main() {
       continue;
     }
     const conteudo = await readFile(caminho, 'utf8');
-    if (!conteudo.startsWith('---\n') || !conteudo.includes(`name: ${skill}`) || !/description:\s*\S/.test(conteudo)) {
+    if (!/^---\r?\n/.test(conteudo) || !conteudo.includes(`name: ${skill}`) || !/description:\s*\S/.test(conteudo)) {
       problemas.push(`Frontmatter inválido: .agents/skills/${skill}/SKILL.md`);
     }
   }

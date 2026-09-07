@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../.agents/skills/consistencia-personagem/templates/consistencia-schema.json",
+  "slug": "ivan-nogueira",
+  "nome": "Ivan Nogueira",
+  "tipo": "real",
+  "genero": "masculino",
+  "idadeAparente": 39,
+  "etnia": "Latino / Pardo Brasileiro",
+  "tomPele": "Moreno claro avelã com subtom quente",
+  "cabelo": {
+    "cor": "Castanho escuro / Preto natural",
+    "textura": "Crespo / Ondulado curto bem assentado",
+    "estilo": "Corte executivo alinhado com degradê suave nas têmporas"
+  },
+  "rosto": {
+    "formato": "Oval com queixo firme e mandíbula suavemente estruturada",
+    "olhos": "Castanho-escuro amendoados com olhar focado e calmo",
+    "barba": "Clean-shaven (rosto completamente barbeado sem pelos)",
+    "marcas": "Discretas bolsas infraorbitais naturais que expressam foco e autoridade analítica"
+  },
+  "corpo": {
+    "altura": "1.79m",
+    "peso": "100kg",
+    "tipoCorpo": "Gordinho / Silhueta encorpada e suave",
+    "porte": "Chubby stocky rounded heavy-set build, solid frame, gentle round contours"
+  },
+  "guardaRoupa": {
+    "principal": "Camiseta básica preta lisa de gola redonda (crew neck) de alta qualidade, calça de alfaiataria preta clássica de corte reto e sapatos sociais minimalistas de couro preto fosco. Sem acessórios, sem relógio, punhos livres.",
+    "secundario": "Camiseta básica preta sob blazer casual estruturado cinza escuro ou preto, calça de alfaiataria preta e sapatos minimalistas escuros"
+  },
+  "promptAncora": "Ivan Nogueira, a 39-year-old Latin Brazilian male with short dark curly textured hair, smooth light hazelnut skin with warm undertones, oval rounded face, focused dark brown almond eyes, clean-shaven smooth skin without beard or stubble, chubby stocky rounded heavy-set build, solid frame, 100kg, 1.79m height. Wearing a plain premium black crewneck t-shirt with tailored fit, black tailored dress trousers, minimalist black dress shoes, no watch, bare wrists, no accessories or jewelry. Calm commanding authority, executive dark studio backdrop, soft directional studio lighting, highly photorealistic 8k, exact character facial identity and anatomy matching attached master sheet.",
+  "negativePrompt": "beard, stubble, mustache, facial hair, watch, wrist accessories, jewelry, glasses, slender build, skinny, thin body, deformed face, asymmetrical eyes, missing fingers, extra fingers, altered hairline, changing age, deformed body proportions, blurry facial features, cartoon, distorted limbs, mutated hands, multiple heads, unrealistic skin texture, light eyes, blond hair.",
+  "caminhoFolhaMestre": "criativo-ai-studio/recursos/personagens/ivan-nogueira/folha-consistencia-mestre.png",
+  "caminhoRostoMaster": "criativo-ai-studio/recursos/personagens/ivan-nogueira/rosto-neutro-master.png"
+}

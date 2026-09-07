@@ -64,6 +64,10 @@ Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentaca
 - `criar-identidade-visual` — Brandbook, design system e tokens de marca.
 - `configurar-instagram` — Integração com Meta API, GitHub Pages e fluxo de aprovação.
 - `analise-metricas` — Diagnóstico de performance de posts e otimizações orientadas a dados.
+- `gerador-de-entregaveis` (`/gerador-de-entregaveis`) — Geração de PDF executivo, planilha editorial, showcase web interativo e dossiê de aprovação.
+- `engenharia-reversa-concorrentes` (`/radar-concorrentes` ou `/engenharia-reversa-concorrentes`) — Investigação forense de mercado, autópsia de ganchos virais e dossiê de contra-ataque.
+- `consistencia-personagem` (`/consistencia-personagem`) — Grid antropométrico mestre 360°, tokens âncora e blindagem facial/corporal em artes de IA.
+- `criar-video-reels` (`/criar-video-reels`) — Direção cinematográfica, edição de vídeo (Faceless e Talking Head), legendas estilo karaokê e renderização Remotion (1080×1920).
 
 ---
 
@@ -75,3 +79,4 @@ Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentaca
 | Carrossel (cada slide) | 1080×1350 | `3:4` |
 | Anúncio no Feed | 1080×1350 | `3:4` |
 | Stories | 1080×1920 | `9:16` |
+| Reels / Vídeo Vertical | 1080×1920 | `9:16` |

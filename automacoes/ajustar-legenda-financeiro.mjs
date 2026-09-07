@@ -1,14 +1,14 @@
-# Copy — 5 Automações com IA que Cortam 15 Horas do seu Financeiro
+import { readFile, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { calcularFingerprint } from './lib/fila.mjs';
 
-## Headline (Capa)
-**5 AUTOMAÇÕES COM IA QUE CORTAM 15H DO SEU FINANCEIRO**  
-*Gatilho: Comente "FINANCEIRO" para receber o Dossiê completo em PDF.*
+async function main() {
+  const caminhoPub = resolve('saidas/carrosseis/5-automacoes-com-ia-no-financeiro/publicacao.json');
+  const caminhoJob = resolve('runtime/fila/POST-2026-09-06-13H30.json');
 
----
+  const pub = JSON.parse(await readFile(caminhoPub, 'utf8'));
 
-## Legenda Otimizada para Instagram (Dentro do limite da Meta API)
-
-Se a sua equipe ainda perde horas abrindo PDF de nota fiscal para digitar em ERP, cobrando cliente no WhatsApp no braço e caçando comprovante Pix em extrato bancário... 
+  pub.legenda = `Se a sua equipe ainda perde horas abrindo PDF de nota fiscal para digitar em ERP, cobrando cliente no WhatsApp no braço e caçando comprovante Pix em extrato bancário...
 
 Você não tem uma operação financeira moderna. Você tem digitadores de luxo.
 
@@ -33,4 +33,21 @@ Preparei um Dossiê Executivo em PDF com o mapa das ferramentas, os prompts de O
 
 Salve para revisar com sua equipe. 📌
 
-#EscolaDeFerramentas #InteligenciaArtificial #AutomacaoFinanceira #GestaoEmpresarial #IAparaNegocios #IvanNogueira #FinanceiroInteligente
+#EscolaDeFerramentas #InteligenciaArtificial #AutomacaoFinanceira #GestaoEmpresarial #IAparaNegocios #IvanNogueira #FinanceiroInteligente`;
+
+  await writeFile(caminhoPub, JSON.stringify(pub, null, 2), 'utf8');
+
+  const fp = await calcularFingerprint(pub);
+  const job = JSON.parse(await readFile(caminhoJob, 'utf8'));
+  job.status = 'aprovado';
+  job.fingerprint = fp;
+  job.publicacao.legenda = pub.legenda;
+  delete job.erro;
+  job.atualizadoEm = new Date().toISOString();
+  await writeFile(caminhoJob, JSON.stringify(job, null, 2), 'utf8');
+
+  console.log(`✓ Legenda atualizada! Tamanho: ${pub.legenda.length} caracteres.`);
+  console.log(`✓ Fingerprint: ${fp}`);
+}
+
+main().catch(console.error);

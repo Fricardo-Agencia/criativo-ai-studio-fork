@@ -102,6 +102,9 @@ Depois reabra o Antigravity IDE. Agora você pode usar tanto comandos `/` quanto
 | `/criar-identidade-visual` | "Redesenhe as cores e fontes da marca" | Brandbook e design system |
 | `/configurar-instagram` | "Configure a integração com o Instagram" | Meta API e GitHub Pages |
 | `/analise-metricas` | "Analise a performance dos últimos posts" | Diagnóstico e otimização |
+| `/gerador-de-entregaveis` | "Empacote esse post para o cliente aprovar" | PDF executivo, planilha e showcase web |
+| `/radar-concorrentes` | "Espione os maiores players do meu nicho" | Engenharia reversa e dossiê de contra-ataque |
+| `/consistencia-personagem` | "Trave a consistência do meu rosto e corpo" | Folha mestra 360° e tokens âncora |
 
 ## Scripts disponíveis
 
