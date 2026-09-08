@@ -158,25 +158,40 @@ recursos:
 export function montarPerfil(dados) {
   return `# Perfil da marca
 
+## Fundador e não negociáveis
+
+${dados.fundador || 'A definir'}
+
+### Meus Não Negociáveis (Linhas Vermelhas da Marca):
+${dados.naoNegociaveis || '• A Coragem de Mudar de Rota\n• Saber Dizer NÃO\n• Valorização do Capital Intelectual\n• Tolerância Zero ao Desrespeito'}
+
 ## Negócio e nicho
 
 ${dados.negocio}
-
-## Público prioritário
-
-${dados.publico}
-
-## Momento, dores e desejos do público
-
-${dados.contextoPublico}
 
 ## Posicionamento e ponto de vista
 
 ${dados.posicionamento}
 
+## Público prioritário
+
+${dados.publico}
+
+## Anti-persona (para quem NÃO é)
+
+${dados.antiPersona || 'Quem busca dinheiro fácil, sem disposição para operar ou que procura hacks milagrosos.'}
+
+## Momento, dores e desejos do público
+
+${dados.contextoPublico}
+
 ## Oferta principal
 
 ${dados.oferta}
+
+## Esteira completa de produtos
+
+${dados.esteira || '- Entrada: Low Ticket / Desafio\n- Principal: Mentoria / Escola Contínua\n- High Ticket: Consultoria individual\n- Ferramentas: Packs de agentes IA'}
 
 ## Transformação e mecanismo
 
@@ -193,6 +208,10 @@ ${dados.tom}
 ## Vocabulário e expressões
 
 ${dados.vocabulario}
+
+## 10 Assuntos de domínio autoral
+
+${dados.dezAssuntos || '1. Tese do modelo de negócio\n2. Gestão de tempo e energia\n3. Criação de ofertas que vendem\n4. Rotina sustentável de conteúdo\n5. Uso prático de IA na operação'}
 
 ## Chamada para ação preferida
 
@@ -293,17 +312,23 @@ export async function executarOnboarding({ diretorioRaiz = raizPadrao, terminalI
     console.log('Percurso: 1) instalação  2) perfil  3) identidade visual  4) configurações  5) primeiro post e preview  6) postagem.');
     console.log('Insira seus ativos em recursos/ ou registre ausência temporária como “sem logo nesta primeira peça”.\n');
     console.log('Onboarding — etapa 2 de 6: perfil, estratégia e voz\n');
+    console.log('DICA: Se você já preencheu a Ficha do Negócio na web (/ficha-do-negocio), basta fornecer o PDF no chat do Antigravity IDE!\n');
 
     const dados = {
+      fundador: await perguntar(rl, 'Fundador, história, origem e superpoder', extrairSecao(atual, 'Fundador e não negociáveis')),
+      naoNegociaveis: await perguntar(rl, 'Meus Não Negociáveis (linhas vermelhas éticas da marca)', extrairSecao(atual, 'Meus Não Negociáveis')),
       negocio: await perguntar(rl, 'Negócio, especialidade e nicho', extrairSecao(atual, 'Negócio e nicho')),
-      publico: await perguntar(rl, 'Público prioritário', extrairSecao(atual, 'Público prioritário')),
-      contextoPublico: await perguntar(rl, 'Momento, dores, desejos e objeções do público', extrairSecao(atual, 'Momento, dores e desejos do público')),
       posicionamento: await perguntar(rl, 'Posicionamento, crença ou ponto de vista', extrairSecao(atual, 'Posicionamento e ponto de vista')),
+      publico: await perguntar(rl, 'Público prioritário', extrairSecao(atual, 'Público prioritário')),
+      antiPersona: await perguntar(rl, 'Anti-persona (para quem NÃO é)', extrairSecao(atual, 'Anti-persona (para quem NÃO é)')),
+      contextoPublico: await perguntar(rl, 'Momento, dores, desejos e objeções do público', extrairSecao(atual, 'Momento, dores e desejos do público')),
       oferta: await perguntar(rl, 'Oferta principal e condições confirmadas', extrairSecao(atual, 'Oferta principal')),
+      esteira: await perguntar(rl, 'Esteira completa de produtos (entrada, principal, high ticket)', extrairSecao(atual, 'Esteira completa de produtos')),
       transformacao: await perguntar(rl, 'Transformação entregue e como ela acontece', extrairSecao(atual, 'Transformação e mecanismo')),
       provas: await perguntar(rl, 'Provas, casos, experiência ou ativos de autoridade', extrairSecao(atual, 'Provas e ativos de autoridade')),
       tom: await perguntar(rl, 'Tom de voz', extrairSecao(atual, 'Tom de voz')),
       vocabulario: await perguntar(rl, 'Palavras que usa e palavras que evita', extrairSecao(atual, 'Vocabulário e expressões')),
+      dezAssuntos: await perguntar(rl, '10 Assuntos fundamentais de domínio autoral', extrairSecao(atual, '10 Assuntos de domínio autoral')),
       cta: await perguntar(rl, 'CTA preferido', extrairSecao(atual, 'Chamada para ação preferida')),
       objetivos: await perguntar(rl, 'Objetivos do Instagram', extrairSecao(atual, 'Objetivos do Instagram')),
       capacidade: await perguntar(rl, 'Frequência e formatos que consegue produzir', extrairSecao(atual, 'Capacidade de produção')),

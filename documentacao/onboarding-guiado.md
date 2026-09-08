@@ -36,11 +36,23 @@ Este guia define o fluxo do onboarding no Criativo AI Studio. O processo é um f
 
 ## Marco 2 — Perfil da Marca
 
-Colete em blocos curtos, sem repetições cansativas:
-- **Bloco 1 (Negócio):** Nome, especialidade/nicho e localização ou formato de atuação.
-- **Bloco 2 (Público & Dores):** Quem é o cliente ideal, suas dores e aspirações.
-- **Bloco 3 (Oferta & Diferencial):** O que é vendido, mecanismo único e provas/casos.
-- **Bloco 4 (Voz & Regras):** Tom de voz, vocabulário característico e restrições.
+O agente deve oferecer imediatamente duas vias para o usuário:
+
+### Opção A (Via Express — Ficha do Negócio Pronta)
+Se o usuário já tiver preenchido previamente a página web `/ficha-do-negocio` e gerado o PDF executivo:
+1. Solicite que o usuário forneça o PDF da **Ficha do Negócio** (arraste no chat ou coloque em `recursos/ficha-do-negocio.pdf`).
+2. O agente faz a leitura direta e forense do arquivo PDF com `view_file`.
+3. Preenche automaticamente todos os dados em `conteudos/perfil-da-marca.md` e sincroniza a paleta e fontes em `conteudos/identidade-visual.yml`.
+4. Apresenta o resumo executivo estruturado para confirmação rápida e avança imediatamente para o Marco 3.
+
+### Opção B (Entrevista Guiada no Chat)
+Caso o usuário ainda não tenha gerado a ficha previamente, conduza a entrevista no chat em blocos curtos, objetivos e sem repetições:
+- **Bloco 1 (Fundador & Não Negociáveis):** Nome, história/origem, superpoder (intersecção única) e **Meus Não Negociáveis** (linhas vermelhas éticas da marca).
+- **Bloco 2 (Negócio & Posicionamento):** Nome comercial, nicho, formato de atuação, crença central e o que combate no mercado (anti-hype).
+- **Bloco 3 (Públicos, Faturamento & Anti-Persona):** Cliente ideal, sub-públicos, faixa etária, maturidade (começando do zero vs. escala), faturamento atual e **Para quem NÃO é (Anti-Persona)**.
+- **Bloco 4 (Dores, Desejos & Diagnóstico Profundo):** Dores operacionais, dores emocionais (síndrome do impostor, cegueira de conhecimento), crenças de diagnóstico e grande aspiração.
+- **Bloco 5 (Esteira Completa de Ofertas):** Produto de entrada (low ticket), produto principal (carro-chefe), high ticket/consultoria, packs/ferramentas e autoridade (livro/palestras).
+- **Bloco 6 (Voz, Vocabulário & 10 Assuntos de Domínio):** Tom de voz, manifesto/bordão, vocabulário sagrado, termos proibidos e os **10 Grandes Assuntos que domina**.
 
 Salve no formato estruturado em `conteudos/perfil-da-marca.md` e avance para o Marco 3.
 

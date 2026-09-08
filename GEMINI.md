@@ -29,7 +29,9 @@ Este repositório é uma fundação local e adaptável de produção de conteúd
 Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentacao/onboarding-guiado.md` como um processo contínuo e fluido:
 
 1. **Marco 1 — Instalação:** Verificar Node.js 20+, dependências, `.env` criado automaticamente com modo local e integridade de diretórios.
-2. **Marco 2 — Perfil:** Coletar negócio, público, oferta, posicionamento, voz, objetivos e restrições em blocos curtos, salvando em `conteudos/perfil-da-marca.md`.
+2. **Marco 2 — Perfil da Marca (Duas Opções):**
+   - **Opção A (Via Express — Ficha Pronta):** Perguntar se o usuário já preencheu a página `/ficha-do-negocio` e gerou a Ficha do Negócio em PDF. Se sim, pedir para enviar o PDF (ou colocar em `recursos/`). O agente faz a leitura forense com `view_file` e popula automaticamente `conteudos/perfil-da-marca.md`, `recursos/brand/` e `conteudos/identidade-visual.yml` sem interrogatórios longos.
+   - **Opção B (Entrevista no Chat):** Caso ainda não tenha gerado a ficha, conduzir a entrevista em blocos estruturados cobrindo Fundador & Não Negociáveis, Negócio & Posicionamento, Público & Anti-Persona, Dores & Diagnóstico, Esteira Completa de Produtos e Voz & 10 Assuntos de Domínio. Salvar em `conteudos/perfil-da-marca.md`.
 3. **Marco 3 — Identidade Visual:**
    - Inventário em `recursos/fotos/`, `recursos/logos/` e `recursos/referencias/`.
    - Extrair o estilo estético das referências do usuário e registrar a paleta e fontes em `identidade-visual.yml`.
