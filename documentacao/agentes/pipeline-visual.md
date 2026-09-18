@@ -32,7 +32,7 @@ Antes de gerar qualquer peça, o agente deve inspecionar visualmente as imagens 
 ### 🚫 REGRA CRÍTICA: Blindagem Anti-Cópia de Referências (Anti-Leakage)
 - As imagens em `recursos/referencias/` pertencem a terceiros ou servem **EXCLUSIVAMENTE** para extração de diretrizes estéticas (layout, luz, textura, composição).
 - **É ESTRITAMENTE PROIBIDO copiar ou deixar vazar para a imagem gerada**:
-  - Nomes de profissionais, especialistas, designers, criadores ou marcas das referências (ex.: "Ivan Nogueira - Especialista em I.A.", "Boccalini Designer", etc.).
+  - Nomes de profissionais, especialistas, designers, criadores ou marcas das referências (ex.: "[NOME_DO_USUARIO] - Especialista em I.A.", "Boccalini Designer", etc.).
   - Arrobas (@handles), perfis de redes sociais ou links presentes nas imagens de referência (ex.: `@boccalini`).
   - Assinaturas, cargos, títulos, marcas d'água, carimbos, selos ou logos de terceiros.
   - Textos, copies ou slogans que façam parte das peças de referência.
@@ -166,7 +166,7 @@ COMPOSITION:
 - Logo/Icon: [SE_HOUVER: Official brand logo from ImagePaths placed subtly in top-left with padding / SE_NAO_HOUVER: None].
 - Branding: Subtle brand identification '@[USUARIO_ATUAL]' (or omitted if none provided).
 STRICT NEGATIVE/ISOLATION INSTRUCTIONS:
-- Do NOT copy, transcribe, or include any names, titles, credentials, handles, watermarks, signatures, or logos from the reference images (do NOT copy names like 'Ivan Nogueira', 'Boccalini', or any reference author/specialist text).
+- Do NOT copy, transcribe, or include any names, titles, credentials, handles, watermarks, signatures, or logos from the reference images (do NOT copy names like '[NOME_DO_USUARIO]', 'Boccalini', or any reference author/specialist text).
 - Use reference images ONLY for lighting, layout structure, and aesthetic mood.
 QUALITY: Ultra-crisp graphic design, beautiful typography hierarchy, photorealistic lighting matching the brand's aesthetic, perfect margins."
 ImagePaths: ["recursos/referencias/referencia-estilo.jpg", "recursos/fotos/foto-usuario.jpg", "recursos/logos/logo.png"]

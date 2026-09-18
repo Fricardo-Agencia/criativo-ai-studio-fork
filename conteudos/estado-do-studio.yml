@@ -1,17 +1,14 @@
-estado: pronto
+# Estado do Studio
+# Este arquivo é gerenciado automaticamente pelo onboarding e pelas automações.
+# NÃO edite manualmente.
+
+estado: pendente
 marcos:
-  instalacao: validado
-  perfil: preenchido
-  identidade_visual: aprovado
-  configuracoes: configurado
-  primeiro_post: aprovado
-  postagem: publicado
-publicacao_inicial:
-  job_id: POST-001
-  media_id: '18101589941614174'
-  permalink: 'https://www.instagram.com/p/DcxEwvVHNEi/'
-  publicado_em: '2026-09-02T01:38:22.172Z'
-proximo_passo: 'Studio instalado e configurado com sucesso! Utilize as 9 skills especialistas para produzir novos conteúdos.'
-atualizado_em: '2026-09-01T22:42:00-03:00'
-  primeira_publicacao_id: "18076358903422140"
-  primeira_publicacao_permalink: "https://www.instagram.com/p/Dc9lDMSIw14/"
+  instalacao: pendente
+  perfil: pendente
+  identidade_visual: pendente
+  configuracoes: pendente
+  primeiro_post: pendente
+  postagem: pendente
+proximo_passo: 'Execute o onboarding guiado para configurar o studio para o seu negócio.'
+atualizado_em: null

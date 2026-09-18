@@ -14,10 +14,11 @@ Leia `documentacao/agentes/contrato-operacional.md`, `documentacao/agentes/quali
 ## 🎨 Como Estruturar a Sequência Visual
 
 1. **Absorver o Estilo das Referências e Selecionar Fotos:**
-   - Inspecione `recursos/referencias/` para entender a diagramação dos slides (fundo claro/escuro, uso de caixas, divisórias, tipografia, fotos).
+   - Inspecione `recursos/referencias/carrosseis/` para entender a diagramação dos slides (fundo claro/escuro, uso de caixas, divisórias, tipografia, fotos). Se vazia, use `recursos/referencias/` (geral).
    - **Variação de Fotos:** Inspecione `recursos/fotos/` e selecione fotos variadas do acervo para os slides que exigirem foto da pessoa/produto. Não repita sempre a mesma imagem.
    - **REGRA CRÍTICA ANTI-CÓPIA:** Referências servem **EXCLUSIVAMENTE** para inspiração visual de iluminação, diagramação e estética. **NUNCA copie nomes de designers, empresas, @handles, assinaturas, logos ou textos presentes nas referências** (ex: @boccalini, designer de exemplo, etc.). Toda assinatura de marca deve ser estritamente o `@usuario` do projeto (`conteudos/identidade-visual.yml`). Se não houver, deixe sem @.
-   - Passe as referências, as fotos selecionadas e o logo (`recursos/logos/`) em `ImagePaths` no `generate_image`.
+   - Passe as referências de `recursos/referencias/carrosseis/`, as fotos selecionadas e o logo (`recursos/logos/`) em `ImagePaths` no `generate_image`.
+   - **Prioridade de seleção:** Sempre prefira referências da subpasta específica do formato. Se vazia, use a pasta geral.
 
 2. **Capa de Alto Impacto (Slide 1):**
    - Ponto focal envolvente, headline com alto contraste e gancho irresistível, adaptado às cores da marca (`tokens.css`).

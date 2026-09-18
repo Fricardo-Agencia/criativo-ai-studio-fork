@@ -1,21 +1,25 @@
-/* Tokens visuais da marca — Ivan Nogueira | Especialista em I.A */
+/*
+ * Tokens visuais da marca
+ * Preenchido automaticamente pelo agente durante o onboarding (Marco 3).
+ * Os valores abaixo são placeholders neutros — serão substituídos pela paleta real do usuário.
+ */
 
 :root {
-  /* Cores — extraídas da logo + direção dark premium */
-  --cor-fundo: #0D0D0D;
-  --cor-fundo-alt: #1A1A1A;
-  --cor-texto: #F5F5F5;
-  --cor-texto-secundario: #CCCCCC;
-  --cor-texto-terciario: #999999;
-  --cor-destaque: #FF6B00;
-  --cor-secundaria: #FFB800;
-  --cor-acento: #CC2200;
-  --cor-gradiente: linear-gradient(135deg, #FF6B00, #FFB800);
+  /* Cores — extraídas da logo e direção visual do usuário */
+  --cor-fundo: #000000;           /* [A PREENCHER] */
+  --cor-fundo-alt: #111111;       /* [A PREENCHER] */
+  --cor-texto: #FFFFFF;           /* [A PREENCHER] */
+  --cor-texto-secundario: #CCCCCC;/* [A PREENCHER] */
+  --cor-texto-terciario: #999999; /* [A PREENCHER] */
+  --cor-destaque: #888888;        /* [A PREENCHER] */
+  --cor-secundaria: #666666;      /* [A PREENCHER] */
+  --cor-acento: #444444;          /* [A PREENCHER] */
+  --cor-gradiente: linear-gradient(135deg, #888888, #666666); /* [A PREENCHER] */
 
-  /* Fontes */
-  --fonte-titulo: 'Inter', sans-serif;
-  --fonte-texto: 'DM Sans', sans-serif;
-  --fonte-apoio: 'JetBrains Mono', monospace;
+  /* Fontes — definidas conforme identidade-visual.yml */
+  --fonte-titulo: sans-serif;     /* [A PREENCHER] */
+  --fonte-texto: sans-serif;      /* [A PREENCHER] */
+  --fonte-apoio: monospace;       /* [A PREENCHER] */
 
   /* Espaçamentos */
   --margem-segura: 80px;

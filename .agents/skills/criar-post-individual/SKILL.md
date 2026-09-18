@@ -20,7 +20,7 @@ Leia `documentacao/agentes/contrato-operacional.md`, `documentacao/agentes/quali
    - **Se o conteúdo for software/tecnologia:** Use `ponto_focal: "mockup_cenario"`.
 
 2. **Inspecione as Referências do Usuário (APENAS Estilo e Composição):**
-   - Abra e analise as imagens em `recursos/referencias/`.
+   - Abra e analise as imagens em `recursos/referencias/individual/` (referências específicas para posts individuais). Se vazia, use `recursos/referencias/` (geral).
    - Identifique a atmosfera: é clean/minimalista? É acolhedora/quente? É luxuosa/sóbria? É vibrante/pop? É técnica/moderna?
    - Observe como os textos, fotos e elementos gráficos são distribuídos nas referências do usuário.
    - **REGRA CRÍTICA ANTI-CÓPIA:** Referências servem exclusivamente para direção artística. **NUNCA copie nomes de pessoas, marcas, designers, @handles, assinaturas, logos ou textos das referências.** A única identidade permitida na arte é a do usuário atual (`conteudos/identidade-visual.yml`).
@@ -29,9 +29,10 @@ Leia `documentacao/agentes/contrato-operacional.md`, `documentacao/agentes/quali
    - Leia `conteudos/identidade-visual.yml` e `recursos/brand/tokens.css`.
    - Use as cores da marca (fundo, texto, destaque, acento) no prompt.
 
-4. **Uso de `ImagePaths`:**
-   - Para posts com foto: passe a referência estética de `recursos/referencias/`, a foto selecionada de `recursos/fotos/` e o logo oficial de `recursos/logos/` (se houver).
-   - Para posts tipográficos/diagramas: passe **apenas a referência estética de layout** de `recursos/referencias/` e o logo oficial (sem foto de pessoa).
+4. **Uso de `ImagePaths` (máx. 3 imagens):**
+   - Para posts com foto: passe a referência estética de `recursos/referencias/individual/`, a foto selecionada de `recursos/fotos/` e o logo oficial de `recursos/logos/` (se houver).
+   - Para posts tipográficos/diagramas: passe **apenas a referência estética de layout** de `recursos/referencias/individual/` e o logo oficial (sem foto de pessoa).
+   - **Prioridade de seleção:** Sempre prefira referências da subpasta específica do formato. Se vazia, use a pasta geral.
 
 ---
 

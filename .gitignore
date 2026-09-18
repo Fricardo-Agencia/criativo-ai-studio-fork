@@ -8,8 +8,33 @@ node_modules/
 runtime/
 logs/
 
-# Saídas geradas (opcionalmente versionáveis)
+# Saídas geradas (mantidas localmente, não versionadas)
+# O agente gera saídas durante produção — são dados do usuário, não do produto.
 # saidas/
+
+# Prévias geradas (dados de produção do usuário)
+# previas/
+
+# Dados pessoais do usuário (NUNCA versionar)
+# O onboarding preenche esses diretórios com ativos do usuário.
+recursos/fotos/*
+!recursos/fotos/.gitkeep
+recursos/logos/*
+!recursos/logos/.gitkeep
+recursos/referencias/*
+!recursos/referencias/.gitkeep
+recursos/personagens/*
+!recursos/personagens/.gitkeep
+
+# Relatórios de performance (dados reais de métricas)
+conteudos/relatorios/*
+!conteudos/relatorios/.gitkeep
+
+# Gravações e áudios do usuário
+conteudos/gravacoes/*
+!conteudos/gravacoes/.gitkeep
+conteudos/audios/*
+!conteudos/audios/.gitkeep
 
 # Sistema
 .DS_Store

@@ -19,9 +19,10 @@ Leia `documentacao/agentes/contrato-operacional.md`, `documentacao/agentes/quali
    - **Área Central Segura (65% intermediário):** Onde ficam o ponto focal, fotos, headline e cards visuais.
 
 2. **Uso de Referências Verticais (APENAS Composição e Estilo):**
-   - Inspecione `recursos/referencias/` para extrair composições verticais elegantes.
+   - Inspecione `recursos/referencias/stories/` para extrair composições verticais elegantes. Se vazia, use `recursos/referencias/` (geral).
    - **REGRA CRÍTICA ANTI-CÓPIA:** Referências servem apenas para formato, layout e luz. **NUNCA copie nomes de designers, empresas, arrobas (@handles), marcas d'água ou textos das referências.** Use apenas o `@usuario` oficial do projeto (`conteudos/identidade-visual.yml`) ou não coloque arroba.
-   - Passe referências em `ImagePaths` no `generate_image`.
+   - Passe referências de `recursos/referencias/stories/` em `ImagePaths` no `generate_image`.
+   - **Prioridade de seleção:** Sempre prefira referências da subpasta específica do formato. Se vazia, use a pasta geral.
 
 3. **Elementos Interativos Simulados:**
    - Para stories de engajamento, ilustre caixas de perguntas, enquetes ou sliders com design limpo e moderno.

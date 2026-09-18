@@ -14,9 +14,10 @@ Leia `documentacao/agentes/contrato-operacional.md`, `documentacao/agentes/quali
 ## 🎨 Princípios de Criação de Anúncios
 
 1. **Uso de Referências do Usuário (APENAS Composição e Estilo):**
-   - Inspecione `recursos/referencias/` para identificar referências de anúncios e layouts preferidos.
+   - Inspecione `recursos/referencias/anuncios/` para identificar referências de anúncios e layouts preferidos. Se vazia, use `recursos/referencias/` (geral).
    - **REGRA CRÍTICA ANTI-CÓPIA:** Referências servem unicamente para direção visual e composição. **NUNCA copie nomes de designers, empresas, arrobas (@handles), marcas d'água, assinaturas ou logos das referências.** Toda identificação deve vir estritamente de `conteudos/identidade-visual.yml`.
-   - Passe as referências e fotos em `ImagePaths` no `generate_image`.
+   - Passe as referências de `recursos/referencias/anuncios/` e fotos em `ImagePaths` no `generate_image`.
+   - **Prioridade de seleção:** Sempre prefira referências da subpasta específica do formato. Se vazia, use a pasta geral.
 
 2. **Composição em 3 Camadas:**
    - **Gancho Visual:** Ponto focal dominante (pessoa, produto ou mockup) integrado com a iluminação do cenário.

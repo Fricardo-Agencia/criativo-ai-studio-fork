@@ -16,7 +16,7 @@ import { createReadStream } from 'node:fs';
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 // ── Configuração ────────────────────────────────────────────────────
-const REPO_URL = 'https://github.com/ivancnogueira/criativo-ai-studio';
+const REPO_URL = 'https://github.com/SEU-USUARIO/criativo-ai-studio';
 const ZIP_URL = `${REPO_URL}/archive/refs/heads/main.zip`;
 
 /**
@@ -25,12 +25,14 @@ const ZIP_URL = `${REPO_URL}/archive/refs/heads/main.zip`;
  * a versão nova é copiada como template inicial.
  */
 const PROTEGIDOS = [
-  // Dados da marca
+  // Dados da marca (preenchidos pelo onboarding)
   'conteudos/',
+  'recursos/brand/',
   // Ativos visuais do usuário
   'recursos/fotos/',
   'recursos/logos/',
   'recursos/referencias/',
+  'recursos/personagens/',
   // Saídas geradas
   'saidas/',
   'previas/',
@@ -54,9 +56,9 @@ const SISTEMA_EXEMPLOS = [
   'documentacao/',
   'templates/',
   'testes/',
-  'recursos/brand/',
   'exemplos/',
   'GEMINI.md',
+  'AGENTS.md',
   'README.md',
   'INSTALAR.md',
   'INSTALAR-COM-ANTIGRAVITY.md',

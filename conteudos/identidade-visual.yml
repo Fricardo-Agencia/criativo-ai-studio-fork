@@ -1,37 +1,26 @@
-﻿tema: editorial_bege_quente
-estilo: viral_3d_editorial
+# Identidade Visual
+# Preenchido automaticamente pelo agente durante o onboarding (Marco 3).
+# Fontes de dados: entrevista, referências visuais, logo e preferências do usuário.
+
+tema: null  # Ex: dark_premium, editorial_bege, clean_minimalista, vibrante_colorido
+estilo: null  # Ex: editorial_3d, flat_moderno, fotografia_editorial, tipografico_puro
 cores:
-  cor_fundo: '#F4EFEA'
-  cor_fundo_alt: '#EAE3DA'
-  cor_borda_moldura: '#D6E2D5'
-  cor_texto: '#111111'
-  cor_texto_secundario: '#555555'
-  cor_destaque_terracota: '#D34E23'
-  cor_destaque_verde: '#25D366'
-  cor_balao_verde: '#4CD98B'
-  cor_balao_escuro: '#2A2E33'
-  cor_tag_borda: '#C46D5E'
+  cor_fundo: null          # Cor principal do fundo
+  cor_fundo_alt: null      # Variação alternativa do fundo
+  cor_texto: null           # Cor do texto principal
+  cor_texto_secundario: null # Cor de textos de apoio
+  cor_destaque: null        # Cor de destaque / CTAs / headlines
+  cor_secundaria: null      # Cor secundária de apoio
+  cor_acento: null          # Cor de ênfase, alertas
 fontes:
-  fonte_titulo: 'Anton, Bebas Neue, Inter Tight, sans-serif'
-  fonte_texto: 'Inter, DM Sans, sans-serif'
-  fonte_apoio: 'JetBrains Mono'
-usuario: 'escoladeferramentas'
+  fonte_titulo: null   # Ex: 'Inter, sans-serif' / 'Bebas Neue, sans-serif'
+  fonte_texto: null    # Ex: 'DM Sans, sans-serif'
+  fonte_apoio: null    # Ex: 'JetBrains Mono, monospace'
+usuario: null  # Handle do Instagram sem @ (ex: meuusuario)
 recursos:
-  referencia_ouro: 'recursos/referencias/referencia-ouro-flow-estetica-3d.png'
-  logo: 'recursos/logos/logo-ivan-nogueira-V2.png'
-  logo_fundo_claro: 'recursos/logos/logo-ivan-nogueira.png'
-  favicon: 'recursos/logos/ivannogueira-favicon.png'
-  fotos:
-    - 'recursos/fotos/ivannogueira.jpeg'
-    - 'recursos/fotos/a-cinematic-portrait-photograph-of-a-man_56WWHBYASOej5fy3IeyGcg_VK2Z7LCUQFuiAc7a1cy_UQ.jpeg'
-    - 'recursos/fotos/a-dramatic-studio-portrait-photograph-of_sRF29YnkTpq2YYHTJq7zcw__mq9hLO2RJ2KJsNpLj4TQA.jpeg'
-    - 'recursos/fotos/a-professional-studio-portrait-of-a-man-_6shM1kYpSQaPW3h_eG2h_w_X5WfJ_lDRMu-E-dwB80Bkw.jpeg'
-    - 'recursos/fotos/a-striking-editorial-style-portrait-of-a_-BFWWp3eTcSEp3LxF2gXwg_s5nYerd7RQiDXFW2Yep1sA.jpeg'
-  referencias:
-    - 'recursos/referencias/referencia-ouro-flow-estetica-3d.png'
-    - 'recursos/referencias/Captura de tela 2026-09-01 135206.png'
-    - 'recursos/referencias/09cf83424c3ca09e1f0d5426355a5c03.jpg'
-    - 'recursos/referencias/6ba3b5be6bb059d5d42fb49070259360.jpg'
-    - 'recursos/referencias/15a991e49a81941641e79a0c107933c1.jpg'
-    - 'recursos/referencias/920523fdd10d4cb3c76206acb64d558c.jpg'
-  direitos_de_uso: 'Confirmados — ativos próprios do usuário'
+  logo: null              # Caminho relativo para a logo principal (ex: recursos/logos/logo.png)
+  logo_fundo_claro: null  # Variante da logo para fundos claros
+  favicon: null           # Caminho relativo para o favicon
+  fotos: []               # Lista de caminhos relativos para fotos do titular/marca
+  referencias: []         # Lista de caminhos relativos para referências visuais
+  direitos_de_uso: null   # Confirmação de direitos sobre os ativos

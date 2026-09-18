@@ -9,18 +9,30 @@ Este repositório é uma fundação local e adaptável de produção de conteúd
 1. **Estilo Camaleônico (Guiado pelas Referências do Usuário):**
    - **NÃO imponha um estilo fixo.** Cada marca possui sua própria identidade (clean, rústico, corporativo, vibrante, luxuoso, minimalista ou tech).
    - **SEMPRE** inspecione visualmente as imagens em `recursos/referencias/` para absorver o estilo, diagramação, iluminação e atmosfera visual desejada pelo usuário.
-   - **BLINDAGEM ANTI-CÓPIA DE REFERÊNCIAS:** Referências servem **EXCLUSIVAMENTE** para inspiração visual de iluminação, diagramação e estética. **NUNCA copie nomes de designers, especialistas, empresas, @handles, marcas d'água, assinaturas ou logos das referências** (ex: @boccalini, Ivan Nogueira, etc.).
+   - **Referências Tipificadas por Formato:** O diretório `recursos/referencias/` contém subpastas por tipo de conteúdo:
+     - `referencias/carrosseis/` — referências para carrosséis
+     - `referencias/individual/` — referências para posts individuais
+     - `referencias/stories/` — referências para stories
+     - `referencias/anuncios/` — referências para anúncios
+     - Ao buscar inspiração, **priorize a subpasta do formato** que está sendo produzido. Se vazia, use a pasta geral `recursos/referencias/`.
+   - **BLINDAGEM ANTI-CÓPIA DE REFERÊNCIAS:** Referências servem **EXCLUSIVAMENTE** para inspiração visual de iluminação, diagramação e estética. **NUNCA copie nomes de designers, especialistas, empresas, @handles, marcas d'água, assinaturas ou logos das referências**.
    - **IDENTIDADE OFICIAL & LOGOS:** Toda assinatura deve vir de `conteudos/identidade-visual.yml` (`@usuario`) e `conteudos/perfil-da-marca.md`. Quando houver arquivos em `recursos/logos/` (ex: `logo.png`, `icone.png`), passe-os em `ImagePaths` e aplique de forma discreta com respiro adequado. Se não houver logo, use apenas a assinatura do `@usuario` oficial.
    - **DIVERSIDADE E CONSISTÊNCIA FACIAL DE FOTOS:** Inspecione todo o acervo em `recursos/fotos/` e **varie as fotos utilizadas entre posts consecutivos** (alternando poses, ângulos, roupas e enquadramentos). Ao gerar novas cenas com o rosto do titular, use cláusula de preservação facial no prompt (`SUBJECT / FACIAL CONSISTENCY`) com a foto de referência em `ImagePaths`.
    - Passe as referências estéticas, fotos selecionadas e logo em `ImagePaths` no `generate_image` incluindo instruções de isolamento negativo no prompt.
    - Respeite rigorosamente a paleta de cores e fontes definidas em `conteudos/identidade-visual.yml` e `recursos/brand/tokens.css`.
    - Garanta princípios universais de bom design: hierarquia visual clara, integração natural de luz e sombras, textos curtos e corretos em português (8 a 15 palavras na arte) e margens seguras (10%).
 
-2. **Preservação de Dados:**
-   - Preserve configurações e respostas preenchidas em `conteudos/` e `recursos/brand/`. Nunca apague ou substitua informações sem autorização expressa.
+2. **Preservação de Dados e Templates (Privacidade):**
+   - **NUNCA UTILIZE DADOS REAIS DO CRIADOR OU DE USUÁRIOS ANTERIORES COMO BASE.** O produto de entrega do `criativo-ai-studio` deve conter apenas *placeholders* genéricos (ex: `[NOME_DO_USUARIO]`, `[@SEU_PERFIL]`, `[NOME_DA_MARCA]`) nos templates e configurações padrão.
+   - O agente deve preencher esses placeholders dinamicamente com os dados reais do usuário corrente que estiver usando e operando a máquina naquele momento.
+   - Preserve configurações e respostas preenchidas em `conteudos/` e `recursos/brand/` do usuário corrente. Nunca apague ou substitua informações sem autorização expressa.
 
 3. **Segurança de Credenciais:**
    - Credenciais ficam exclusivamente no `.env` local. Nunca solicite, exiba ou comente valores de tokens no chat.
+
+4. **Proteção na Atualização:**
+   - Ao executar `npm run atualizar`, os seguintes diretórios são **intocáveis**: `conteudos/`, `recursos/brand/`, `recursos/fotos/`, `recursos/logos/`, `recursos/referencias/`, `recursos/personagens/`, `saidas/`, `previas/`, `runtime/`, `logs/`, `.env`, `package-lock.json`.
+   - Arquivos de sistema (automações, skills, documentação, templates) são atualizados; dados do usuário NUNCA.
 
 ---
 
@@ -33,7 +45,7 @@ Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentaca
    - **Opção A (Via Express — Ficha Pronta):** Perguntar se o usuário já preencheu a página `/ficha-do-negocio` e gerou a Ficha do Negócio em PDF. Se sim, pedir para enviar o PDF (ou colocar em `recursos/`). O agente faz a leitura forense com `view_file` e popula automaticamente `conteudos/perfil-da-marca.md`, `recursos/brand/` e `conteudos/identidade-visual.yml` sem interrogatórios longos.
    - **Opção B (Entrevista no Chat):** Caso ainda não tenha gerado a ficha, conduzir a entrevista em blocos estruturados cobrindo Fundador & Não Negociáveis, Negócio & Posicionamento, Público & Anti-Persona, Dores & Diagnóstico, Esteira Completa de Produtos e Voz & 10 Assuntos de Domínio. Salvar em `conteudos/perfil-da-marca.md`.
 3. **Marco 3 — Identidade Visual:**
-   - Inventário em `recursos/fotos/`, `recursos/logos/` e `recursos/referencias/`.
+   - Inventário em `recursos/fotos/`, `recursos/logos/` e `recursos/referencias/` (incluindo subpastas tipificadas).
    - Extrair o estilo estético das referências do usuário e registrar a paleta e fontes em `identidade-visual.yml`.
    - Sincronizar `brandbook.md`, `design-system.md`, `tokens.css`, `briefing-visual.md` e `identidade-visual.yml`.
    - Obter aprovação explícita da direção visual antes de produzir artes.
@@ -55,7 +67,7 @@ Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentaca
 
 ---
 
-## 🎛️ Roteamento de Skills (`.agents/skills/`)
+## 🎛️ Roteamento de Skills Base (`.agents/skills/`)
 
 - `planejar-conteudo` — Estratégia editorial, pilares, pautas e briefs estruturados.
 - `copywriter-instagram` — Redação de headlines, legendas persuasivas e CTAs com a voz da marca.
@@ -66,10 +78,10 @@ Quando o usuário iniciar ou pedir para conduzir o onboarding, siga `documentaca
 - `criar-identidade-visual` — Brandbook, design system e tokens de marca.
 - `configurar-instagram` — Integração com Meta API, GitHub Pages e fluxo de aprovação.
 - `analise-metricas` — Diagnóstico de performance de posts e otimizações orientadas a dados.
-- `gerador-de-entregaveis` (`/gerador-de-entregaveis`) — Geração de PDF executivo, planilha editorial, showcase web interativo e dossiê de aprovação.
-- `engenharia-reversa-concorrentes` (`/radar-concorrentes` ou `/engenharia-reversa-concorrentes`) — Investigação forense de mercado, autópsia de ganchos virais e dossiê de contra-ataque.
-- `consistencia-personagem` (`/consistencia-personagem`) — Grid antropométrico mestre 360°, tokens âncora e blindagem facial/corporal em artes de IA.
-- `criar-video-reels` (`/criar-video-reels`) — Direção cinematográfica, edição de vídeo (Faceless e Talking Head), legendas estilo karaokê e renderização Remotion (1080×1920).
+
+> **Skills de Upgrade (instaladas separadamente como pacotes globais):**
+> - `gerador-de-entregaveis`, `engenharia-reversa-concorrentes`, `consistencia-personagem` — via pacote `skills-agents-bonus`
+> - `criar-video-reels`, `roteirista-faceless`, `roteirista-talking-head` — via pacote `criativo-video-studio`
 
 ---
 

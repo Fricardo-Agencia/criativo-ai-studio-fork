@@ -13,7 +13,7 @@ Pré-requisitos: Node.js 20 ou superior e Antigravity IDE.
 Abra o chat do Antigravity IDE em qualquer pasta vazia e envie o prompt:
 
 ```text
-Instale o Criativo AI Studio a partir de https://github.com/ivancnogueira/criativo-ai-studio.git em uma nova pasta criativo-ai-studio no diretório atual. Depois do clone, leia integralmente GEMINI.md, README.md, documentacao/onboarding-guiado.md e documentacao/configurar-github-pages.md. Conduza a instalação e o onboarding em 6 marcos até a primeira publicação real.
+Instale o Criativo AI Studio a partir de https://github.com/SEU-USUARIO/criativo-ai-studio.git em uma nova pasta criativo-ai-studio no diretório atual. Depois do clone, leia integralmente GEMINI.md, README.md, documentacao/onboarding-guiado.md e documentacao/configurar-github-pages.md. Conduza a instalação e o onboarding em 6 marcos até a primeira publicação real.
 ```
 
 Leia [INSTALAR-COM-ANTIGRAVITY.md](INSTALAR-COM-ANTIGRAVITY.md) para o prompt completo e detalhado.
